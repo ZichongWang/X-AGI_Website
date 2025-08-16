@@ -1,337 +1,62 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2025 X-AGI & 第18届中国R会议 | 官方网站</title>
-  <meta name="description" content="2025 X-智能大会（X-AGI）& 第18届中国R会议，时间：2025年10月17-19日，北京会议中心。会议介绍、重要日期、注册与缴费、日程安排、组织单位、联系信息。" />
-  <!-- Open Graph / SEO 基础 -->
-  <meta property="og:title" content="2025 X-AGI & 第18届中国R会议 | 官方网站" />
-  <meta property="og:description" content="时间：2025年10月17-19日，北京会议中心。会议介绍、重要日期、注册与缴费、日程安排、组织单位、联系信息。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.org/" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <style>
-    :root{
-      --bg:#0b1020;         /* 背景 Background */
-      --panel:#11162a;      /* 面板 Panel */
-      --text:#e6eef7;       /* 文字 Text */
-      --muted:#a8b3c7;      /* 次级文字 Muted */
-      --primary:#22d3ee;    /* 品牌主色 Primary */
-      --accent:#60a5fa;     /* 强调色 Accent */
-      --ok:#34d399;         /* 成功色 */
-      --warn:#f59e0b;       /* 警告色 */
-      --danger:#f87171;     /* 危险色 */
-      --radius:16px;
-      --shadow:0 10px 25px rgba(0,0,0,.25);
-      --maxw:1200px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,#0b1020 0%,#0f172a 100%);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif}
-    a{color:var(--primary);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{width:100%;max-width:var(--maxw);padding:0 20px;margin:0 auto}
-    /* 顶部导航 */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .brand .logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 45deg, var(--primary), var(--accent), #a78bfa, var(--primary));box-shadow:var(--shadow)}
-    .menu{display:flex;gap:18px}
-    .menu a{color:var(--text);opacity:.9}
-    .menu a.active{color:var(--primary)}
-    .menu-btn{display:none;background:transparent;border:0;color:var(--text);font-size:22px}
-    @media (max-width: 860px){
-      .menu{display:none}
-      .menu.open{display:flex;flex-direction:column;gap:10px;position:absolute;top:64px;right:16px;background:var(--panel);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
-      .menu-btn{display:block}
-    }
-    /* Hero */
-    .hero{position:relative;padding:80px 0 60px;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-20%;background:radial-gradient(60% 50% at 50% 0%, rgba(96,165,250,.25), rgba(34,211,238,.12) 40%, rgba(0,0,0,0) 70%);pointer-events:none}
-    .hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 10px;letter-spacing:.3px}
-    .subtitle{color:var(--muted);font-size:clamp(14px,2vw,18px)}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-    .badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;color:var(--text)}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));color:var(--text);text-decoration:none;box-shadow:var(--shadow)}
-    .btn.primary{background:linear-gradient(180deg, rgba(34,211,238,.25), rgba(96,165,250,.18));border-color:rgba(255,255,255,.15)}
-    .btn:hover{transform:translateY(-1px)}
-    .grid{display:grid;gap:18px}
-    @media (min-width: 860px){.grid.cols-2{grid-template-columns:1.2fr .8fr}}
-    .panel{background:rgba(17,22,42,.7);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:18px}
-    .kpi{display:flex;gap:18px;flex-wrap:wrap}
-    .kpi .card{flex:1 1 160px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
-    .countdown{display:flex;gap:10px}
-    .countdown .box{min-width:64px;text-align:center;background:#0c1326;border-radius:12px;border:1px solid rgba(255,255,255,.08);padding:8px}
-    .countdown .num{display:block;font-size:20px;font-weight:700}
-
-    /* Section 通用 */
-    section{padding:54px 0}
-    section h2{font-size:28px;margin:0 0 16px}
-    .muted{color:var(--muted)}
-    .cards{display:grid;gap:14px}
-    @media (min-width: 680px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
-    .list{margin:0;padding-left:18px}
-    .two-col{display:grid;gap:18px}
-    @media (min-width: 900px){.two-col{grid-template-columns:1fr 1fr}}
-
-    /* 表格 */
-    table{width:100%;border-collapse:collapse;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
-    th,td{padding:12px;border-bottom:1px solid rgba(255,255,255,.06)}
-    th{text-align:left;color:var(--muted);font-weight:600}
-    tr:hover td{background:rgba(255,255,255,.02)}
-
-    /* Footer */
-    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 X 智能大会 & 第18届中国R会议</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 顶部导航（Navigation） -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#home"><span class="logo"></span> <span>2025 X-AGI & 中国R会议</span></a>
-      <button class="menu-btn" aria-label="Menu" onclick="toggleMenu()">☰</button>
-      <div id="menu" class="menu">
-        <a href="#about">会议介绍 About</a>
-        <a href="#dates">重要日期 Important Dates</a>
-        <a href="#current">日程 Program</a>
-        <a href="#registration">注册与缴费 Registration</a>
-        <a href="#speakers">Speakers</a>
-        <a href="#history">历届 History</a>
-        <a href="#contact">联系 Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero 区 -->
-  <header id="home" class="hero">
-    <div class="container grid cols-2">
-      <div>
-        <h1>2025 X-智能大会 & 第18届中国R会议<br/><small style="font-weight:500;opacity:.9">2025 X-AGI & The 18th China-R Joint Conference</small></h1>
-        <p class="subtitle">时间 Time：2025.10.17（短课 Short Course） · 10.18–10.19（正式会议 Main Conference）<br/>地点 Venue：北京会议中心（Beijing Conference Center）</p>
-        <div class="badges">
-          <span class="badge">#X-AGI</span>
-          <span class="badge">#China-R</span>
-          <span class="badge">#AI</span>
-          <span class="badge">#DataScience</span>
-        </div>
-        <div class="cta">
-          <a class="btn primary" href="#registration">立即注册 Register</a>
-          <a class="btn" href="#current">查看日程 Program</a>
-        </div>
-      </div>
-      <div class="panel">
-        <h3 style="margin-top:0">倒计时 Countdown</h3>
-        <div class="countdown" id="countdown">
-          <div class="box"><span class="num" id="d">–</span><small>天 Days</small></div>
-          <div class="box"><span class="num" id="h">–</span><small>时 Hours</small></div>
-          <div class="box"><span class="num" id="m">–</span><small>分 Minutes</small></div>
-          <div class="box"><span class="num" id="s">–</span><small>秒 Seconds</small></div>
-        </div>
-        <div class="kpi" style="margin-top:14px">
-          <div class="card"><div class="muted">Tracks</div><div style="font-size:20px;font-weight:700">2</div></div>
-          <div class="card"><div class="muted">Days</div><div style="font-size:20px;font-weight:700">3</div></div>
-          <div class="card"><div class="muted">City</div><div style="font-size:20px;font-weight:700">Beijing</div></div>
-        </div>
-      </div>
+  <header class="header">
+    <div class="nav">
+      <div class="logo">X-AGI</div>
+      <ul>
+        <li><a href="index.html">首页<span class="en"> Home</span></a></li>
+        <li><a href="about.html">会议简介<span class="en"> About</span></a></li>
+        <li><a href="speakers.html">演讲嘉宾<span class="en"> Speakers</span></a></li>
+        <li><a href="schedule.html">日程安排<span class="en"> Schedule</span></a></li>
+        <li><a href="partners.html">合作伙伴<span class="en"> Partners</span></a></li>
+      </ul>
+      <div class="language-switch"><a href="#">EN/中</a></div>
+      <a href="register.html" class="btn btn-primary">注册参会<span class="en"> Register</span></a>
     </div>
   </header>
 
-  <!-- 会议介绍 About -->
-  <section id="about">
-    <div class="container two-col">
-      <div>
-        <h2>会议介绍 About</h2>
-        <p><strong>中国 R 会议</strong>由统计之都（Capital of Statistics, COS）发起，2008 年在中国人民大学举行首届大会。会议的初心是推广 R 语言这种免费、开源、灵活的统计计算和数据分析工具，从而促进统计学和数据科学在中国的发展。随着参会者的增加和内容的扩展，R 会议逐渐从单一城市的年会成长为全国性的系列会议。在过去 17 年里，已先后联合 20 多个院校，在北京、上海、广州、杭州等 15 个城市共举办超过 50 场 R 会议，近 2000 个演讲，线上线下累计参会 10 万多人次，话题覆盖机器学习、人工智能、统计理论、文本、语音、图像、天文、地理、心理、社会、医疗、公共卫生、生物信息、互联网、可视化、车联网、自动驾驶、城市规划、量化金融、工业工程、智能制造等领域。</p>
-        <p>近年来，算法、算力、数据相关技术的迅猛发展拉开了通用人工智能（AGI）的序幕，正在对科学探索、产业进步、社会治理产生深远影响。为更好地介绍和推广先进生产力、促进交流、激发思考、启迪创新，自 2023 年起，主办方新设立 <strong>X-智能大会（X-AGI）</strong>，引入更多智能技术话题，包括大模型技术，以及 AI 在自然科学、社会科学、数学、医疗、金融、教育等方面的新实践。X 寓意未知与探索，X-AGI 的使命是“交叉智能，计算未来”。目前，X-AGI 集结了来自数据科学、计算机科学、数学、运筹优化、医疗信息等多个学科背景的数十位青年教师和学生协同开展相关研究工作。</p>
-        <ul class="list">
-          <li>主办方（Organizers）：
-            <ul class="list">
-              <li>中国人民大学应用统计科学研究中心（Center for Applied Statistics, Renmin University of China）</li>
-              <li>中国人民大学统计学院（School of Statistics, Renmin University of China）</li>
-              <li>统计之都（Capital of Statistics）</li>
-              <li>中国商业统计学会人工智能分会（Artificial Intelligence Branch, Commerce Statistical Society of China）</li>
-            </ul>
-          </li>
-          <li>地点（Venue）：北京会议中心 · Beijing Conference Center</li>
-        </ul>
-      </div>
-      <div>
-        <div class="card">
-          <h3 style="margin-top:0">Quick Facts</h3>
-          <ul class="list">
-            <li>短课 Short Course：2025-10-17</li>
-            <li>正式会议 Main Conference：2025-10-18 ~ 10-19</li>
-            <li>早鸟截止 Early-bird Deadline：2025-09-17</li>
-          </ul>
-          <p class="muted">* 无论文投稿（No paper submission）。</p>
-        </div>
-      </div>
+  <!-- Hero section for home page -->
+  <section class="hero" style="background-image: url('images/2024bg.png');">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>2025 X 智能大会 & 第18届中国R会议<br><span class="en">2025 X-AGI & 18th China-R Conference</span></h1>
+      <p>10月17日‑19日 · 北京 · 北京会议中心<br><span class="en">October &nbsp;17–19 · Beijing · Beijing Conference Center</span></p>
+      <a href="register.html" class="btn btn-secondary">注册参会</a>
     </div>
+    <footer class="footer-on-hero">
+      <div class="container">
+        <p style="font-size:15px">主办单位<br>
+          中国人民大学应用统计科学研究中心&nbsp;&nbsp;中国人民大学统计学院&nbsp;&nbsp;统计之都&nbsp;&nbsp;中国商业统计学会人工智能分会</p>
+        <p style="font-size:15px">©2025 Captical of Statistics. All rights reserved.</p>
+      </div>
+    </footer>
+
   </section>
 
-  <!-- 重要日期 Important Dates -->
-  <section id="dates">
+  <!-- Introduction section on homepage
+  <section class="section">
     <div class="container">
-      <h2>重要日期 Important Dates</h2>
-      <div class="cards">
-        <div class="card"><strong>网站发布 Site Live</strong><br><span class="muted">2025-08</span></div>
-        <div class="card"><strong>早鸟注册 Early-bird</strong><br><span class="muted">截止 2025-09-17</span></div>
-        <div class="card"><strong>短课程 Short Course</strong><br><span class="muted">2025-10-17</span></div>
-        <div class="card"><strong>大会 Day 1</strong><br><span class="muted">2025-10-18</span></div>
-        <div class="card"><strong>大会 Day 2</strong><br><span class="muted">2025-10-19</span></div>
-      </div>
+      <h2 class="section-title">会议亮点<span class="en"> Highlights</span></h2>
+      <p>
+        我们的会议致力于汇聚全球人工智能与科技领域的专家与从业人员，分享前沿研究成果和产业实践，并探讨人工智能的未来方向。
+        <span class="en">Our conference aims to bring together experts and practitioners in AI and technology worldwide to share cutting‑edge research, industry practices and explore the future of artificial intelligence.</span>
+      </p>
     </div>
-  </section>
+  </section> -->
 
-  <!-- 日程 Program -->
-  <section id="current">
+  <!-- <footer class="footer">
     <div class="container">
-      <h2>日程 Program</h2>
-      <div class="card" id="program">
-        <table>
-          <thead><tr><th>时间段</th><th>Session A</th><th>Session B</th></tr></thead>
-          <tbody>
-            <tr><td>10/17 上午 09:00–12:00</td><td>短课程：大模型基础</td><td>—</td></tr>
-            <tr><td>10/17 下午 14:00–17:00</td><td>短课程：大模型实践</td><td>—</td></tr>
-            <tr><td>10/18 上午 09:00–11:30</td><td colspan="2">Keynote Speaker</td></tr>
-            <tr><td>10/18 下午 13:00–15:00</td><td>Agent（港科广，张佳钇）</td><td>多模态（港中深，胡天阳）</td></tr>
-            <tr><td>10/18 下午 15:30–17:30</td><td>大模型行业应用（火花，冯俊晨）</td><td>可解释大模型（上财，滕佳烨）</td></tr>
-            <tr><td>10/19 上午 09:00–11:30</td><td>AI4Science（高瓴，许洪腾）</td><td>具身智能（清华，许华哲）</td></tr>
-            <tr><td>10/19 下午 13:00–15:00</td><td>AI+生物医疗（清华，俞声、健桥）</td><td>大模型 Reasoning</td></tr>
-            <tr><td>10/19 下午 15:30–17:30</td><td>医学统计（人大，李扬）</td><td>大模型教育？</td></tr>
-          </tbody>
-        </table>
-        <p class="muted">* 以上为暂定议程，具体以现场为准。</p>
-      </div>
+      <p>主办单位：<br>
+        中国人民大学应用统计科学研究中心&nbsp;中国人民大学统计学院&nbsp;统计之都&nbsp;中国商业统计学会人工智能分会</p>
+      <p>©2025 Captical of Statistics. All rights reserved.</p>
     </div>
-  </section>
-
-  <!-- 注册与缴费 Registration & Payment -->
-  <section id="registration">
-    <div class="container">
-      <h2>注册与缴费 Registration & Payment</h2>
-      <div class="two-col">
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>价格类型</th>
-                <th>A 短课程</th>
-                <th>B 会议费</th>
-                <th>C 短课程+会议费</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>普通票（9.17 前）</td><td>¥1200</td><td>¥1400</td><td>¥2300</td></tr>
-              <tr><td>学生票（9.17 前）</td><td>¥720</td><td>¥840</td><td>¥1380</td></tr>
-              <tr><td>普通票（9.17 后）</td><td>¥1400</td><td>¥1600</td><td>¥2500</td></tr>
-              <tr><td>学生票（9.17 后）</td><td>¥840</td><td>¥960</td><td>¥1500</td></tr>
-            </tbody>
-          </table>
-          <ul class="list" style="margin-top:10px">
-            <li>A：短课程含 17 日一天午餐券</li>
-            <li>B：会议费含 18、19 日两天午餐券</li>
-            <li>C：短课程+会议费含 17、18、19 三天午餐券</li>
-          </ul>
-          <p class="muted">* 具体发票信息与退款政策将于报名通道开放时公布。</p>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">报名通道 Registration</h3>
-          <p class="muted">报名表单与支付链接开放后将出现在这里（支持支付宝/微信、PayPal/Stripe 等第三方链接）。</p>
-          <div class="cta" style="margin-top:8px">
-            <a class="btn primary" href="#" target="_blank" rel="noopener">在线报名（即将开放）</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">发票/团体报名咨询</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Speakers 占位 -->
-  <section id="speakers">
-    <div class="container">
-      <h2>Speakers（持续更新）</h2>
-      <div class="cards">
-        <div class="card"><strong>Keynote</strong><br><span class="muted">敬请期待 | To be announced</span></div>
-        <div class="card"><strong>AI4Science</strong><br><span class="muted">许洪腾（高瓴）</span></div>
-        <div class="card"><strong>Embodied Intelligence</strong><br><span class="muted">许华哲（清华）</span></div>
-        <div class="card"><strong>Agent</strong><br><span class="muted">张佳钇（港科广）</span></div>
-        <div class="card"><strong>Multimodal</strong><br><span class="muted">胡天阳（港中深）</span></div>
-        <div class="card"><strong>Industry LLM Apps</strong><br><span class="muted">冯俊晨（火花）</span></div>
-        <div class="card"><strong>Explainable LLMs</strong><br><span class="muted">滕佳烨（上财）</span></div>
-        <div class="card"><strong>AI + Biomed</strong><br><span class="muted">俞声、健桥（清华）</span></div>
-        <div class="card"><strong>Medical Statistics</strong><br><span class="muted">李扬（人大）</span></div>
-      </div>
-      <p class="muted" style="margin-top:10px">* 名单以最终公布为准。</p>
-    </div>
-  </section>
-
-  <!-- 历届会议 History -->
-  <section id="history">
-    <div class="container">
-      <h2>历届会议 History</h2>
-      <div class="cards">
-        <div class="card"><strong>2024 · Shanghai</strong><br><span class="muted">R 会议/ X-AGI · <a href="#" target="_blank" rel="noopener">Proceedings</a></span></div>
-        <div class="card"><strong>2023 · Beijing</strong><br><span class="muted">R 会议/ X-AGI · <a href="#" target="_blank" rel="noopener">Website</a></span></div>
-        <div class="card"><strong>2022 · Online</strong><br><span class="muted">R 会议 · <a href="#" target="_blank" rel="noopener">Recordings</a></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 联系方式 Contact -->
-  <section id="contact">
-    <div class="container two-col">
-      <div>
-        <h2>联系 Contact</h2>
-        <p>邮箱 Email：<a href="mailto:conf2025@yourdomain.org">conf2025@yourdomain.org</a><br>
-           地址 Address：北京会议中心（Beijing Conference Center）</p>
-        <p class="muted">媒体合作与赞助请邮件联系。For media & sponsorship, email us.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0">订阅 Updates</h3>
-        <p class="muted">将订阅表单（Google Forms/Microsoft Forms）链接到这里。</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">订阅通知 Subscribe</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>© <span id="year"></span> 2025 X-AGI & 第18届中国R会议 组委会</div>
-      <div class="muted">Static site powered by GitHub Pages.</div>
-    </div>
-  </footer>
-
-  <script>
-    // 移动端菜单开合 Mobile Nav Toggle
-    function toggleMenu(){
-      const m = document.getElementById('menu');
-      m.classList.toggle('open');
-    }
-    // 平滑滚动 Smooth Scroll（可选）
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id=a.getAttribute('href');
-        if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}
-      })
-    })
-    // 倒计时：以 2025-10-17 09:00 (+08:00) 为起点
-    const target = new Date('2025-10-17T09:00:00+08:00');
-    const dd=document.getElementById('d'), hh=document.getElementById('h'), mm=document.getElementById('m'), ss=document.getElementById('s');
-    function tick(){
-      const now = new Date();
-      let diff = Math.max(0, target-now);
-      const d=Math.floor(diff/86400000); diff-=d*86400000;
-      const h=Math.floor(diff/3600000); diff-=h*3600000;
-      const m=Math.floor(diff/60000); diff-=m*60000;
-      const s=Math.floor(diff/1000);
-      dd.textContent=d; hh.textContent=h; mm.textContent=m; ss.textContent=s;
-    }
-    tick(); setInterval(tick, 1000);
-    // 年份
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  </footer> -->
 </body>
 </html>
