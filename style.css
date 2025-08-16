@@ -83,7 +83,7 @@ body {
 
 .btn-secondary {
   background-color: var(--secondary-color);
-  color: #fff;
+  color: #fff !important;
 }
 
 .btn-secondary:hover {
@@ -148,6 +148,11 @@ body {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   margin-top: -50px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero p {
@@ -278,4 +283,71 @@ body {
 
 .hero.hero-small .content {
   padding-top: 40px;    /* 适当往下留点间距 */
+}
+
+
+/* About：左右布局 */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.about-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.about-card h3 { margin: .25rem 0 1rem; color: var(--primary-color); }
+
+/* Metrics 小网格 */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px;
+}
+.metrics > div {
+  background: var(--light-color);
+  border-radius: 10px;
+  padding: .75rem .5rem;
+  text-align: center;
+}
+.metrics strong { display: block; font-size: 1.4rem; color: var(--primary-color); line-height: 1.1; }
+.metrics span   { font-size: .85rem; color: #666; }
+
+/* 时间线 Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 3px solid #e6eef5; }
+.timeline li { position: relative; padding: 0 0 1.2rem 1.25rem; }
+.tl-dot {
+  position: absolute; left: -6px; top: .25rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--primary-color);
+}
+.tl-body h4 { margin: 0 0 .25rem; color: var(--primary-color); }
+.tl-body p  { margin: 0; color: #333; }
+
+/* 主题 tags */
+.topics {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  padding: 0; margin: 0; list-style: none; justify-content: center;
+}
+.topics li {
+  padding: .4rem .7rem; border-radius: 999px;
+  background: #f1f6fb; color: #0b3c66; font-size: .95rem;
+  border: 1px solid #e0ecf7;
+}
+
+/* 淡底分节 */
+.section-muted { background: #fafbfd; }
+.cta-row { display: flex; gap: .8rem; margin-top: .8rem; }
+
+/* 响应式 */
+@media (max-width: 992px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .topics li { font-size: .9rem; }
 }
