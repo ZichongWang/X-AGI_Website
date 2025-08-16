@@ -359,12 +359,12 @@ body {
 }
 
 /* 关键点：长 logo 适配容器，保持比例 */
-.organizers-stacked .org-logo img {
-  max-width: 100%;
-  max-height: 64px;     /* 控制高度，长图标会缩放，不会撑破布局 */
-  height: auto;
-  width: auto;
-  object-fit: contain;
+section.organizers-stacked .org-logo img {
+  display: block;
+  height: 64px !important;   /* 直接指定高度，防止被默认 img{height:auto} 覆盖 */
+  width: auto !important;    /* 按比例缩放宽度 */
+  max-width: 100% !important;
+  object-fit: contain;       /* 即使是超长横图，也不会被拉伸变形 */
 }
 
 .organizers-stacked h3 {
