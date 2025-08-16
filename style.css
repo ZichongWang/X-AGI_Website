@@ -270,3 +270,12 @@ body {
     display: none; /* 需要配合 JS 切换显示 */
   }
 }
+
+.hero.hero-small {
+  height: 33vh;         /* 1/3 屏幕高度 */
+  min-height: 250px;    /* 避免太小导致内容挤没了 */
+}
+
+.hero.hero-small .content {
+  padding-top: 40px;    /* 适当往下留点间距 */
+}
