@@ -1,6 +1,6 @@
 /* CSS 变量定义配色方案 */
 :root {
-  --primary-color: #004680; /* 主色：深蓝色 */
+  --primary-color: #1363a5; /* 主色：深蓝色 */
   --secondary-color: #007acc; /* 次级色：亮蓝色 */
   --text-color: #1a1a1a;
   --light-color: #f5f7fa;
@@ -73,8 +73,8 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: #fff !important;
 }
 
 .btn-primary:hover {
