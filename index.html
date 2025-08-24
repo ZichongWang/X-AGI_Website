@@ -1,64 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 X 智能大会 & 第18届中国R会议</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 X-AGI & The 18th China-R Conference</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="nav">
-      <div class="logo">X-AGI</div>
-      <ul>
-        <li><a href="index.html">首页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-        <li><a href="about.html">会议简介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-        <li><a href="speakers.html">演讲嘉宾&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-        <li><a href="schedule.html">日程安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-        <li><a href="partners.html">合作伙伴&nbsp;&nbsp;&nbsp;&nbsp&nbsp;</a></li>
-      </ul>
-      <a href="register.html" class="btn btn-primary">注册参会</a>
-    </div>
-  </header>
 
-  <!-- Hero section for home page -->
-  <section class="hero" style="background-image: url('./images/2024bg.png');">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>2025 X 智能大会 & 第18届中国R会议<br><span class="en">2025 X-AGI & 18th China-R Conference</span></h1>
-      <br>
-      <p style="font-size:25px">2025年10月17日‑19日 <br>北京会议中心<br></p>
-      <a href="register.html" class="btn btn-secondary">注册参会</a>
-    </div>
-    <footer class="footer-on-hero">
-      <div class="container">
-        <p style="font-size:15px;line-height: 1.7">主办单位<br>
-          中国人民大学应用统计科学研究中心&nbsp;&nbsp;中国人民大学统计学院&nbsp;&nbsp;统计之都&nbsp;&nbsp;中国商业统计学会人工智能分会</p>
-          <p style="font-size:15px;line-height: 1.7">协办单位&nbsp;&nbsp;
-            中国人民大学健康大数据研究院</p>
-        <p style="font-size:15px;line-height: 1.2">©2025 Captical of Statistics. All rights reserved.</p>
-      </div>
-    </footer>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container custom-container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="X-AGI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">会议简介</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule.html">日程安排</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">短期课程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="guide.html">参会指南</a></li>
+                    <!-- Mobile Button -->
+                    <li class="nav-item d-lg-none mt-3">
+                        <a href="#" class="btn btn-register w-100">报名参会</a>
+                    </li>
+                </ul>
+                <!-- Desktop Button -->
+                <a href="#" class="btn btn-register d-none d-lg-flex">报名参会</a>
+            </div>
+        </div>
+    </nav>
 
-  </section>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="content-wrapper">
+            <img src="assets/images/home_title.png" alt="2025 X-智能大会" class="hero-title-img">
+            <p class="hero-date">2025.10.17–10.19 北京会议中心</p>
+            <a href="#" class="btn btn-hero-register">报名参会</a>
+        </div>
+        <div class="hero-footer">
+            <p>主办单位: 中国人民大学应用统计科学研究中心、中国人民大学统计学院、统计之都、中国商业统计学会人工智能分会</p>
+            <p>协办单位: 中国人民大学健康大数据研究院</p>
+        </div>
+    </header>
 
-  <!-- Introduction section on homepage
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">会议亮点<span class="en"> Highlights</span></h2>
-      <p>
-        我们的会议致力于汇聚全球人工智能与科技领域的专家与从业人员，分享前沿研究成果和产业实践，并探讨人工智能的未来方向。
-        <span class="en">Our conference aims to bring together experts and practitioners in AI and technology worldwide to share cutting‑edge research, industry practices and explore the future of artificial intelligence.</span>
-      </p>
-    </div>
-  </section> -->
-
-  <!-- <footer class="footer">
-    <div class="container">
-      <p>主办单位：<br>
-        中国人民大学应用统计科学研究中心&nbsp;中国人民大学统计学院&nbsp;统计之都&nbsp;中国商业统计学会人工智能分会</p>
-      <p>©2025 Captical of Statistics. All rights reserved.</p>
-    </div>
-  </footer> -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,74 +1,131 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>日程安排 | 我们的学术会议</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日程安排 - 2025 X-AGI & The 18th China-R Conference</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="nav">
-      <div class="logo">Conference Logo</div>
-      <ul>
-        <li><a href="index.html">首页<span class="en"> Home</span></a></li>
-        <li><a href="about.html">会议简介<span class="en"> About</span></a></li>
-        <li><a href="speakers.html">演讲嘉宾<span class="en"> Speakers</span></a></li>
-        <li><a href="schedule.html">日程安排<span class="en"> Schedule</span></a></li>
-        <li><a href="partners.html">合作伙伴<span class="en"> Partners</span></a></li>
-      </ul>
-      <div class="language-switch"><a href="#">EN/中</a></div>
-      <a href="register.html" class="btn btn-primary">注册参会<span class="en"> Register</span></a>
-    </div>
-  </header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container custom-container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="X-AGI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">会议简介</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="schedule.html">日程安排</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">短期课程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="guide.html">参会指南</a></li>
+                    <li class="nav-item d-lg-none mt-3">
+                        <a href="#" class="btn btn-register w-100">报名参会</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-register d-none d-lg-flex">报名参会</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container custom-container header-content">
+            <h1>2025 X-AGI & The 18th China-R Conference</h1>
+            <p>日程安排</p>
+            <a href="#" class="btn btn-outline-light btn-download">下载大会手册</a>
+        </div>
+    </header>
 
-  <!-- Hero section -->
-  <section class="hero" style="background-image: url('images/schedule-bg.jpg');">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>日程安排<br><span class="en">Schedule</span></h1>
-      <p>了解大会的精彩日程<br><span class="en">Discover the exciting program</span></p>
-    </div>
-  </section>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container custom-container">
+            <!-- Schedule Tabs -->
+            <ul class="nav nav-pills schedule-tabs mb-4">
+                <li class="nav-item"><button class="nav-link active">全部</button></li>
+                <li class="nav-item"><button class="nav-link">10月18日上午</button></li>
+                <li class="nav-item"><button class="nav-link">10月18日下午</button></li>
+                <li class="nav-item"><button class="nav-link">10月19日上午</button></li>
+                <li class="nav-item"><button class="nav-link">10月19日下午</button></li>
+            </ul>
 
-  <section class="section schedule">
-    <div class="container">
-      <h2 class="section-title">会议日程<span class="en"> Program</span></h2>
-      <table class="schedule-table">
-        <thead>
-          <tr>
-            <th>时间<span class="en"> Time</span></th>
-            <th>主题<span class="en"> Topic</span></th>
-            <th>嘉宾<span class="en"> Speaker</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>09:00–10:00</td>
-            <td>开幕致辞<span class="en"> Opening Ceremony</span></td>
-            <td>大会主席<span class="en"> Conference Chair</span></td>
-          </tr>
-          <tr>
-            <td>10:00–11:00</td>
-            <td>人工智能前沿<span class="en"> AI Frontiers</span></td>
-            <td>张三<span class="en"> Dr. Zhang</span></td>
-          </tr>
-          <tr>
-            <td>11:00–12:00</td>
-            <td>大模型与具身智能<span class="en"> Large Models & Embodied Intelligence</span></td>
-            <td>李四<span class="en"> Prof. Li</span></td>
-          </tr>
-          <!-- 更多日程... -->
-        </tbody>
-      </table>
-    </div>
-  </section>
+            <!-- Schedule Card: 18 AM -->
+            <div class="info-card schedule-card">
+                <div class="card-header">10月18号上午 | 开幕式暨主题报告 (第一会议室)</div>
+                <div class="card-body">
+                    <div class="session-list">
+                        <div class="session-item">
+                            <div class="session-title">
+                                <span class="session-time">09:15 - 10:15</span>
+                                <span>大模型如何促进生物学科研进步</span>
+                            </div>
+                            <div class="session-speaker">刘军 | 清华统计教授, 美国科学院院士</div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-title">
+                                <span class="session-time">10:15 - 11:15</span>
+                                <span>待定</span>
+                            </div>
+                            <div class="session-speaker">文继荣 | 中国人民大学高瓴人工智能学院执行院长</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schedule Card: 18 PM -->
+             <div class="info-card schedule-card">
+                <div class="card-header">10月18号下午 | 分会场</div>
+                <div class="card-body">
+                    <div class="session-list">
+                         <div class="session-item">
+                            <div class="session-title">
+                                <span class="session-time">13:00 - 15:00</span>
+                                <span>Session A: Agent (港科广)</span>
+                            </div>
+                            <div class="session-speaker">张佳钇 | 港科广</div>
+                        </div>
+                        <div class="session-item">
+                           <div class="session-title">
+                               <span class="session-time">13:00 - 15:00</span>
+                               <span>Session B: 多模态 (港中深)</span>
+                           </div>
+                           <div class="session-speaker">胡天阳 | 港中深</div>
+                       </div>
+                       <div class="session-item">
+                            <div class="session-title">
+                                <span class="session-time">15:30 - 17:30</span>
+                                <span>Session A: 大模型行业应用 (火花)</span>
+                            </div>
+                            <div class="session-speaker">冯俊晨 | 火花</div>
+                        </div>
+                        <div class="session-item">
+                           <div class="session-title">
+                               <span class="session-time">15:30 - 17:30</span>
+                               <span>Session B: 可解释大模型 (上财)</span>
+                           </div>
+                           <div class="session-speaker">滕佳烨 | 上财</div>
+                       </div>
+                    </div>
+                </div>
+            </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>主办单位：某研究院&nbsp;&nbsp;备案号：京ICP备xxxx号</p>
-      <p>©2025 Our Institute. All rights reserved.</p>
-    </div>
-  </footer>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container custom-container">
+            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
+            <p>联系方式: xagi-2025@cosx.org</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
