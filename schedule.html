@@ -153,51 +153,59 @@
                 </div>
             </div>
             
-            <!-- Schedule Card: 18 PM -->
-             <div class="info-card schedule-card" id="session-19-a  m">
-                <div class="card-header">10月19日上午 | 多模态理解与生成 </div>
+
+            <div class="info-card schedule-card" id="session-19-am">
+                <div class="card-header">10月19日上午 | 测试一下跳转 (第一会议室)</div>
+                <div class="session-chair">主席 | 胡天阳</div>
                 <div class="card-body">
                     <div class="session-list">
-                         <div class="session-item">
-                            <div class="session-title"><span class="session-time">13:00 - 15:00</span><span>Session A: Agent (港科广)</span></div>
-                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker3" aria-expanded="false" aria-controls="speaker3">
-                                <span>张佳钇 | 港科广</span><i class="fas fa-chevron-down expand-icon"></i>
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">09:15 - 10:15</span><span>Faster Convergence and Acceleration for Diffusion-Based Generative Models
+                                </span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker1" aria-expanded="false" aria-controls="speaker1">
+                                <span>Gen Li | Department of Statistics and Data Science, Chinese University of Hong Kong</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="collapse" id="speaker3">
-                                <!-- Details here -->
+                            <div class="collapse" id="speaker1">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/GenLi.png" alt="GenLi" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Diffusion models, which generate new data instances by learning to reverse a Markov diffusion process from noise, have become a cornerstone in contemporary generative modeling. While their practical power has now been widely recognized, the theoretical underpinnings remain underdeveloped. Particularly, despite the recent surge of interest in accelerating sampling speed, convergence theory for these acceleration techniques remains limited. In this talk, I will first introduce an acceleration sampling scheme for stochastic samplers that provably improves the iteration complexity under minimal assumptions. The second part focuses on diffusion-based language models, whose ability to generate tokens in parallel significantly accelerates sampling relative to traditional autoregressive methods. Adopting an information-theoretic lens, we establish a sharp convergence theory for diffusion language models, thereby providing the first rigorous justification of both their efficiency and fundamental limits.
+                                                </div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">Gen Li is currently an assistant professor in the Department of Statistics and Data Science at the Chinese University of Hong Kong. His research interests include diffusion based generative model, and reinforcement learning.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="session-item">
-                           <div class="session-title"><span class="session-time">13:00 - 15:00</span><span>Session B: 多模态 (港中深)</span></div>
-                           <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker4" aria-expanded="false" aria-controls="speaker4">
-                               <span>胡天阳 | 港中深</span><i class="fas fa-chevron-down expand-icon"></i>
-                           </div>
-                           <div class="collapse" id="speaker4">
-                               <!-- Details here -->
-                           </div>
-                       </div>
-                       <div class="session-item">
-                            <div class="session-title"><span class="session-time">15:30 - 17:30</span><span>Session A: 大模型行业应用 (火花)</span></div>
-                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker5" aria-expanded="false" aria-controls="speaker5">
-                                <span>冯俊晨 | 火花</span><i class="fas fa-chevron-down expand-icon"></i>
+                            <div class="session-title"><span class="session-time">10:15 - 11:15</span><span> On the Mechanism Interpretability of LLM for Fine-tuning and Reasoning
+                            </span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker2" aria-expanded="false" aria-controls="speaker2">
+                                <span>Difan Zou | Computer Science Department and Institute of Data Science, HKU</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="collapse" id="speaker5">
-                                <!-- Details here -->
+                            <div class="collapse" id="speaker2">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/DifanZhou.jpeg" alt="Difan Zhou" style="object-position: center 0%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">While Reinforcement Learning (RL) and Fine-Tuning demonstrably enhance Large Language Model (LLM) capabilities, particularly in reasoning and task adaptation, the underlying mechanisms remain poorly understood. This talk integrates insights from two complementary studies to advance mechanistic interpretability. First, we dissect Reinforcement Learning with Verifiable Rewards (RLVR), revealing its core benefit lies in optimizing the selection of existing high-success-rate reasoning patterns, with theoretical convergence analyses showing distinct dynamics for strong versus weak initial models (mitigated by prior supervised fine-tuning). Second, we employ circuit analysis to interpret fine-tuning mechanisms, uncovering that circuits undergo significant edge changes rather than merely adding components, contrasting prior findings. Leveraging this, we develop a circuit-aware LoRA method, improving performance over standard LoRA by 2.46%. Furthermore, we explore combining circuits for compositional tasks. Together, these studies provide novel theoretical and empirical insights: RL enhances reasoning primarily through pattern selection, while fine-tuning fundamentally rewires circuit connections. This deeper understanding informs the design of more effective and interpretable adaptation strategies for LLMs.
+                                                </div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">Dr.Difan Zou is an assistant professor in computer science department and institute of data science at HKU. He has received his PhD degree in Department of Computer Science, University of California, Los Angeles (UCLA).  His research interests are broadly in machine learning, deep learning theory, graph learning, mechanism interpretation, and interdisciplinary research between AI and other subjects. His research is published in top-tier machine learning conferences (ICML, NeurIPS, COLT, ICLR) and journal papers (IEEE Trans., JMLR, Nature Comm., PNAS, etc.). He serves as an area chair/senior PC member for NeurIPS, ICML and AAAI, and PC members for ICLR, COLT, etc.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="session-item">
-                           <div class="session-title"><span class="session-time">15:30 - 17:30</span><span>Session B: 可解释大模型 (上财)</span></div>
-                           <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker6" aria-expanded="false" aria-controls="speaker6">
-                               <span>滕佳烨 | 上财</span><i class="fas fa-chevron-down expand-icon"></i>
-                           </div>
-                           <div class="collapse" id="speaker6">
-                               <!-- Details here -->
-                           </div>
-                       </div>
                     </div>
                 </div>
             </div>
-            
             <!-- Placeholder for future cards -->
             <div class="info-card schedule-card" id="session-19-am" style="display: none;">
                 <div class="card-header">10月19号上午</div>
