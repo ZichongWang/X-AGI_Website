@@ -72,27 +72,31 @@ body {
 /* --- Hero Section (Home) --- */
 .hero-section {
     height: 100vh;
-    min-height: 600px;
+    min-height: 700px; /* Adjusted for better spacing */
     background: url('../images/bg_home.png') no-repeat center center/cover;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 100px 15px 36px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the top */
+    padding: 325px 15px 30px 15px; /* Set top padding to push content down */
     text-align: center;
     position: relative;
+    box-sizing: border-box;
 }
 .hero-section .content-wrapper {
     padding-top: 0;
-    margin-top: -5%; /* Adjust vertical position */
+    margin-top: 0; /* Remove dynamic margin */
 }
-.hero-title-img { 
-    width: 550px; 
-    max-width: 90%; 
-    height: auto; 
-    margin-top: 100px;
+.hero-title-img {
+    width: 550px;
+    height: 180px;
+    max-width: 90%;
+    margin-top: 0; /* Reset top margin */
 }
-.hero-date { 
-    color: #fff; 
-    font-size: 16px; 
-    margin-top: 110px; 
+.hero-date {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 110px;
 }
 .btn-hero-register {
     width: 168px; height: 54px; background-color: #fff; color: #386EFF;
@@ -100,17 +104,22 @@ body {
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none;
 }
-.hero-footer { 
+.btn-hero-register:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* 设置背景为90%不透明度的白色 */
+    color: #386EFF; /* 确保文字颜色不变 */
+}
+.hero-footer {
     position: absolute;
-    bottom: 36px;
+    bottom: 30px; /* Adjust distance from bottom */
     left: 0;
     right: 0;
+    padding: 0 15px;
 }
-.hero-footer p { 
-    color: #fff; 
-    font-size: 12px; 
-    line-height: 24px; 
-    margin-bottom: 0; 
+.hero-footer p {
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px; /* Adjust line height */
+    margin-bottom: 0;
 }
 
 /* --- Secondary Pages --- */
