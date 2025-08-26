@@ -45,6 +45,25 @@
 4. 提交报名并完成支付
 5. 等待确认邮件
 
+schedule的修改方法：
+
+如何修改默认状态
+如果您想改变某个演讲者的默认状态，只需要：
+改为默认展开：
+将 aria-expanded="false" 改为 aria-expanded="true"
+在 class="collapse" 中添加 show，变成 class="collapse show"
+改为默认收起：
+将 aria-expanded="true" 改为 aria-expanded="false"
+从 class="collapse show" 中移除 show，变成 class="collapse"
+
+调整头像位置：
+```html
+<img src="assets/speaker_photo/JunLiu.jpg" alt="刘军教授" 
+     class="speaker-photo" 
+     style="object-position: center 30%;"
+     onerror="this.src='assets/images/default-speaker.jpg'">
+```
+
 ## 技术栈
 
 - **前端框架**: Bootstrap 5.3.3

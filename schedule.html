@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日程安排 - 2025 X-AGI & The 18th China-R Conference</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -24,12 +25,8 @@
                     <li class="nav-item"><a class="nav-link active" href="schedule.html">日程安排</a></li>
                     <li class="nav-item"><a class="nav-link" href="courses.html">短期课程</a></li>
                     <li class="nav-item"><a class="nav-link" href="guide.html">参会指南</a></li>
-                    <!-- Mobile Button -->
-                    <li class="nav-item d-lg-none mt-3">
-                        <a href="register.html" class="btn btn-register w-100">报名参会</a>
-                    </li>
+                    <li class="nav-item d-lg-none mt-3"><a href="register.html" class="btn btn-register w-100">报名参会</a></li>
                 </ul>
-                <!-- Desktop Button -->
                 <a href="register.html" class="btn btn-register d-none d-lg-flex">报名参会</a>
             </div>
         </div>
@@ -40,7 +37,6 @@
         <div class="container custom-container header-content">
             <h1>2025 X-AGI & The 18th China-R Conference</h1>
             <p>日程安排</p>
-            <!-- <a href="#" class="btn btn-outline-light btn-download">下载大会手册</a> -->
         </div>
     </header>
 
@@ -49,71 +45,167 @@
         <div class="container custom-container">
             <!-- Schedule Tabs -->
             <ul class="nav nav-pills schedule-tabs mb-4">
-                <li class="nav-item"><button class="nav-link active">全部</button></li>
-                <li class="nav-item"><button class="nav-link">10月18日上午</button></li>
-                <li class="nav-item"><button class="nav-link">10月18日下午</button></li>
-                <li class="nav-item"><button class="nav-link">10月19日上午</button></li>
-                <li class="nav-item"><button class="nav-link">10月19日下午</button></li>
+                <li class="nav-item"><button class="nav-link active" data-target=".schedule-tabs">全部</button></li>
+                <li class="nav-item"><button class="nav-link" data-target="#session-18-am">10月18日上午</button></li>
+                <li class="nav-item"><button class="nav-link" data-target="#session-18-pm">10月18日下午</button></li>
+                <li class="nav-item"><button class="nav-link" data-target="#session-19-am">10月19日上午</button></li>
+                <li class="nav-item"><button class="nav-link" data-target="#session-19-pm">10月19日下午</button></li>
             </ul>
 
             <!-- Schedule Card: 18 AM -->
-            <div class="info-card schedule-card">
-                <div class="card-header">10月18号上午 | 开幕式暨主题报告 (第一会议室)</div>
+            <div class="info-card schedule-card" id="session-18-am">
+                <div class="card-header">10月18日上午 | 开幕式 & Keynote (第一会议室)</div>
+                <div class="session-chair">主席: 中国人民大学 李阳</div>
                 <div class="card-body">
                     <div class="session-list">
                         <div class="session-item">
-                            <div class="session-title">
-                                <span class="session-time">09:15 - 10:15</span>
-                                <span>大模型如何促进生物学科研进步</span>
+                            <div class="session-title"><span class="session-time">09:15 - 10:15</span><span>大模型如何促进生物学科研进步</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker1" aria-expanded="true" aria-controls="speaker1">
+                                <span>刘军 | 美国科学院院士，清华大学统计与数据科学系教授</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="session-speaker">刘军 | 清华统计教授, 美国科学院院士</div>
+                            <div class="collapse show" id="speaker1">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JunLiu.jpg" alt="刘军教授" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">本报告将探讨大语言模型在生物学科研中的创新应用。通过分析大规模生物数据的模式识别、蛋白质结构预测、药物发现等关键领域，展示AI技术如何加速科学发现进程。报告将分享最新的研究成果和实际应用案例，为生物医学研究提供新的思路和方法。</div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">刘军教授，美国科学院院士，一直从事于贝叶斯统计理论、蒙特卡洛方法、统计机器学习、状态空间模型和时间序列、生物信息学、计算生物学等方向的研究，并做出杰出贡献，对大数据处理和机器学习领域有深远影响。他于2002年获得考普斯会长奖（COPSS Presidents' Award，公认为国际统计学界的最高荣誉）； 2010年获得世界华人应用数学最高荣誉晨兴应用数学金奖（三年一度，不超过45岁）；2014年被ISI评为论文高频引用的数学家；2016年获得泛华统计协会许宝騄奖（三年一度，不超过51岁）；2004、2005年分别成为美国数理统计学会和美国统计学会会士（Fellow）；2022年当选国际计算生物学会会士。刘军教授还曾任美国统计协会会刊（JASA）联席主编及多个国际一流统计杂志副编等职。截至2025年5月，他在各类国际顶尖学术杂志（如Science，Nature，Cell，JASA，JMLR等）及书刊上发表论文300余篇和一本专著，被引用9万余次（Google scholar）。他已经指导了40多位博士生、30多位博士后。</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="session-item">
-                            <div class="session-title">
-                                <span class="session-time">10:15 - 11:15</span>
-                                <span>待定</span>
+                            <div class="session-title"><span class="session-time">10:15 - 11:15</span><span> LLaDA：扩散大语言模型新范式</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker2" aria-expanded="true" aria-controls="speaker2">
+                                <span>文继荣 | 中国人民大学高瓴人工智能学院执行院长</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="session-speaker">文继荣 | 中国人民大学高瓴人工智能学院执行院长</div>
+                            <div class="collapse show" id="speaker2">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JirongWen.jpg" alt="文继荣院长" style="object-position: center 0%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">本次报告聚焦一个问题：自回归是否是通向当前乃至更高水平的生成式智能的唯一范式？本次报告首先从统一概率建模的视角总结当前基础生成模型的发展，并从这个视角出发指出大语言模型的性质（如可扩展性、指令追随、情景学习、对话、无损压缩）主要来自于生成式准则，而非自回归建模独有。基于这些洞察，介绍扩散大语言模型LLaDA系列工作，包括基础理论、扩展定律、大规模训练、偏好对齐和多模态理解等。LLaDA通过非自回归的方式，展示了令人惊讶的可扩展性和多轮对话能力。这些结果不仅挑战了自回归的地位，更加深了我们对生成式人工智能的理解。</div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">文继荣，中国人民大学高瓴人工智能学院执行院长，国家高层次人才特聘专家。“大模型与智慧治理”北京市重点实验室主任，担任新一代智能搜索与推荐教育部工程研究中心主任。2018年入选首批“北京市卓越青年科学家”,2019年担任北京智源人工智能研究院首席科学家。目前担任中央统战部党外知识分子建言献策专家组专家、北京市第十四届政协常委、第八届教育部科技委委员、中国计算机学会常务理事等。</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card schedule-card" id="session-18-pm">
+                <div class="card-header">10月18日下午 | 多模态理解与生成 (第一会议室)</div>
+                <div class="session-chair">主席 | 胡天阳</div>
+                <div class="card-body">
+                    <div class="session-list">
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">09:15 - 10:15</span><span>Faster Convergence and Acceleration for Diffusion-Based Generative Models
+                                </span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker1" aria-expanded="false" aria-controls="speaker1">
+                                <span>Gen Li | Department of Statistics and Data Science, Chinese University of Hong Kong</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker1">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/GenLi.png" alt="GenLi" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Diffusion models, which generate new data instances by learning to reverse a Markov diffusion process from noise, have become a cornerstone in contemporary generative modeling. While their practical power has now been widely recognized, the theoretical underpinnings remain underdeveloped. Particularly, despite the recent surge of interest in accelerating sampling speed, convergence theory for these acceleration techniques remains limited. In this talk, I will first introduce an acceleration sampling scheme for stochastic samplers that provably improves the iteration complexity under minimal assumptions. The second part focuses on diffusion-based language models, whose ability to generate tokens in parallel significantly accelerates sampling relative to traditional autoregressive methods. Adopting an information-theoretic lens, we establish a sharp convergence theory for diffusion language models, thereby providing the first rigorous justification of both their efficiency and fundamental limits.
+                                                </div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">Gen Li is currently an assistant professor in the Department of Statistics and Data Science at the Chinese University of Hong Kong. His research interests include diffusion based generative model, and reinforcement learning.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">10:15 - 11:15</span><span> On the Mechanism Interpretability of LLM for Fine-tuning and Reasoning
+                            </span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker2" aria-expanded="false" aria-controls="speaker2">
+                                <span>Difan Zou | Computer Science Department and Institute of Data Science, HKU</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker2">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/DifanZhou.jpeg" alt="Difan Zhou" style="object-position: center 0%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">While Reinforcement Learning (RL) and Fine-Tuning demonstrably enhance Large Language Model (LLM) capabilities, particularly in reasoning and task adaptation, the underlying mechanisms remain poorly understood. This talk integrates insights from two complementary studies to advance mechanistic interpretability. First, we dissect Reinforcement Learning with Verifiable Rewards (RLVR), revealing its core benefit lies in optimizing the selection of existing high-success-rate reasoning patterns, with theoretical convergence analyses showing distinct dynamics for strong versus weak initial models (mitigated by prior supervised fine-tuning). Second, we employ circuit analysis to interpret fine-tuning mechanisms, uncovering that circuits undergo significant edge changes rather than merely adding components, contrasting prior findings. Leveraging this, we develop a circuit-aware LoRA method, improving performance over standard LoRA by 2.46%. Furthermore, we explore combining circuits for compositional tasks. Together, these studies provide novel theoretical and empirical insights: RL enhances reasoning primarily through pattern selection, while fine-tuning fundamentally rewires circuit connections. This deeper understanding informs the design of more effective and interpretable adaptation strategies for LLMs.
+                                                </div>
+                                                <h5>演讲者简介</h5><div class="speaker-bio">Dr.Difan Zou is an assistant professor in computer science department and institute of data science at HKU. He has received his PhD degree in Department of Computer Science, University of California, Los Angeles (UCLA).  His research interests are broadly in machine learning, deep learning theory, graph learning, mechanism interpretation, and interdisciplinary research between AI and other subjects. His research is published in top-tier machine learning conferences (ICML, NeurIPS, COLT, ICLR) and journal papers (IEEE Trans., JMLR, Nature Comm., PNAS, etc.). He serves as an area chair/senior PC member for NeurIPS, ICML and AAAI, and PC members for ICLR, COLT, etc.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Schedule Card: 18 PM -->
-             <div class="info-card schedule-card">
-                <div class="card-header">10月18号下午 | 分会场</div>
+             <div class="info-card schedule-card" id="session-19-a  m">
+                <div class="card-header">10月19日上午 | 多模态理解与生成 </div>
                 <div class="card-body">
                     <div class="session-list">
                          <div class="session-item">
-                            <div class="session-title">
-                                <span class="session-time">13:00 - 15:00</span>
-                                <span>Session A: Agent (港科广)</span>
+                            <div class="session-title"><span class="session-time">13:00 - 15:00</span><span>Session A: Agent (港科广)</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker3" aria-expanded="false" aria-controls="speaker3">
+                                <span>张佳钇 | 港科广</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="session-speaker">张佳钇 | 港科广</div>
+                            <div class="collapse" id="speaker3">
+                                <!-- Details here -->
+                            </div>
                         </div>
                         <div class="session-item">
-                           <div class="session-title">
-                               <span class="session-time">13:00 - 15:00</span>
-                               <span>Session B: 多模态 (港中深)</span>
+                           <div class="session-title"><span class="session-time">13:00 - 15:00</span><span>Session B: 多模态 (港中深)</span></div>
+                           <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker4" aria-expanded="false" aria-controls="speaker4">
+                               <span>胡天阳 | 港中深</span><i class="fas fa-chevron-down expand-icon"></i>
                            </div>
-                           <div class="session-speaker">胡天阳 | 港中深</div>
+                           <div class="collapse" id="speaker4">
+                               <!-- Details here -->
+                           </div>
                        </div>
                        <div class="session-item">
-                            <div class="session-title">
-                                <span class="session-time">15:30 - 17:30</span>
-                                <span>Session A: 大模型行业应用 (火花)</span>
+                            <div class="session-title"><span class="session-time">15:30 - 17:30</span><span>Session A: 大模型行业应用 (火花)</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker5" aria-expanded="false" aria-controls="speaker5">
+                                <span>冯俊晨 | 火花</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
-                            <div class="session-speaker">冯俊晨 | 火花</div>
+                            <div class="collapse" id="speaker5">
+                                <!-- Details here -->
+                            </div>
                         </div>
                         <div class="session-item">
-                           <div class="session-title">
-                               <span class="session-time">15:30 - 17:30</span>
-                               <span>Session B: 可解释大模型 (上财)</span>
+                           <div class="session-title"><span class="session-time">15:30 - 17:30</span><span>Session B: 可解释大模型 (上财)</span></div>
+                           <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker6" aria-expanded="false" aria-controls="speaker6">
+                               <span>滕佳烨 | 上财</span><i class="fas fa-chevron-down expand-icon"></i>
                            </div>
-                           <div class="session-speaker">滕佳烨 | 上财</div>
+                           <div class="collapse" id="speaker6">
+                               <!-- Details here -->
+                           </div>
                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Placeholder for future cards -->
+            <div class="info-card schedule-card" id="session-19-am" style="display: none;">
+                <div class="card-header">10月19号上午</div>
+                <div class="card-body"><p>日程正在更新中...</p></div>
+            </div>
+            <div class="info-card schedule-card" id="session-19-pm" style="display: none;">
+                <div class="card-header">10月19号下午</div>
+                <div class="card-body"><p>日程正在更新中...</p></div>
             </div>
 
         </div>
@@ -121,10 +213,7 @@
     
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="container custom-container">
-            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
-            <p>联系方式: xagi-2025@cosx.org</p>
-        </div>
+        <div class="container custom-container"><p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p><p>联系方式: xagi-2025@cosx.org</p></div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

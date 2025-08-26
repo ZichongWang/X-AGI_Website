@@ -31,7 +31,7 @@ body {
 .navbar .nav-link {
     color: #fff;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     position: relative;
     padding: 0.5rem 0;
     margin: 0 20px;
@@ -60,7 +60,7 @@ body {
 }
 .btn-register {
     width: 96px; height: 40px; background-color: #215DFF; color: #fff;
-    font-size: 14px; font-weight: 600; border-radius: 4px;
+    font-size: 14px; font-weight: 500; border-radius: 4px;
     display: flex; align-items: center; justify-content: center; text-decoration: none;
     margin-left: 20px;
 }
@@ -87,6 +87,7 @@ body {
     width: 550px; 
     max-width: 90%; 
     height: auto; 
+    margin-top: 100px;
 }
 .hero-date { 
     color: #fff; 
@@ -95,7 +96,7 @@ body {
 }
 .btn-hero-register {
     width: 168px; height: 54px; background-color: #fff; color: #386EFF;
-    font-size: 20px; font-weight: 600; border-radius: 32px; margin-top: 24px;
+    font-size: 20px; font-weight: 500; border-radius: 32px; margin-top: 24px;
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none;
 }
@@ -132,7 +133,7 @@ body {
     border-radius: 4px;
     color: #fff;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .btn-download:hover {
     background-color: rgba(255,255,255,0.1);
@@ -146,7 +147,7 @@ body {
 }
 .info-card .card-header {
     height: 50px; background-color: #202661; color: #fff;
-    font-size: 18px; font-weight: 600; padding: 0 30px; display: flex; align-items: center;
+    font-size: 18px; font-weight: 500; padding: 0 30px; display: flex; align-items: center;
 }
 .info-card .card-body { padding: 30px; font-size: 14px; line-height: 22px; color: #333; }
 .org-list hr { margin: 30px 0; }
@@ -164,7 +165,7 @@ body {
     height: 40px;
     padding: 0 20px;
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     border: 1px solid #ddd;
     background-color: #fff;
@@ -185,8 +186,8 @@ body {
     border-bottom: 1px solid #eee;
 }
 .session-item:last-child { border-bottom: none; }
-.session-time { margin-right: 20px; font-weight: 600; }
-.session-title { font-size: 18px; color: #0034C2; font-weight: 600; }
+.session-time { margin-right: 20px; font-weight: 500; }
+.session-title { font-size: 18px; color: #0034C2; font-weight: 500; }
 .session-speaker { font-size: 14px; color: rgba(0,0,0,0.85); margin-top: 8px; }
 
 /* --- Courses Page --- */
@@ -207,6 +208,199 @@ body {
 .accordion-item:last-of-type, .accordion-item:last-of-type .accordion-button.collapsed {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+
+/* --- Speaker Details Styles --- */
+.speaker-details {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 15px;
+}
+.speaker-photo {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.speaker-info h5 {
+    color: #1B2B86;
+    margin-bottom: 10px;
+}
+.speaker-abstract {
+    background-color: #fff;
+    /* border-left: 4px solid #215DFF; */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 0 6px 6px 0;
+}
+.speaker-bio {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+.session-speaker {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.session-speaker:hover {
+    color: #215DFF;
+}
+.expand-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+/* --- Guide Page Custom Styles --- */
+.venue-details {
+    text-align: center;
+}
+.venue-address {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.venue-address .fa-map-marker-alt {
+    color: #215DFF;
+    font-size: 18px;
+    margin-right: 6px;
+    height: 18px;
+    width: 18px;
+}
+.venue-map {
+    width: 500px;
+    height: 270px;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 24px auto 16px auto;
+    display: block;
+    border-radius: 4px;
+}
+.transport-info {
+    display: inline-block;
+    text-align: left;
+    max-width: 500px;
+    width: 100%;
+}
+.transport-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.transport-label {
+    flex-shrink: 0;
+    width: 48px;
+    height: 26px;
+    background-color: #215DFF;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+.transport-text {
+    font-size: 14px;
+    color: #000;
+    line-height: 26px;
+}
+.transport-text span {
+    color: #215DFF;
+}
+
+.service-section:not(:last-child) {
+    margin-bottom: 20px;
+}
+.service-section h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.service-section h4 i {
+    font-size: 16px;
+    color: #215DFF;
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+.service-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.service-section li {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    position: relative;
+    padding-left: 15px;
+}
+.service-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 30px;
+    color: #215DFF;
+}
+.service-section li strong {
+    font-weight: 500;
+}
+
+.faq-accordion .accordion-item {
+    border: 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+.faq-accordion .accordion-item:last-child {
+    border-bottom: 0;
+}
+.faq-accordion .accordion-button {
+    height: 60px;
+    padding: 0 30px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+    background-color: #fff;
+    color: #000;
+    box-shadow: none;
+}
+.faq-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+.faq-accordion .accordion-button::after {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D8D8D8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 10px;
+    transition: transform .2s ease-in-out;
+}
+.faq-accordion .accordion-body {
+    padding: 0px 30px 20px 30px;
+    font-size: 14px;
+    color: rgba(0,0,0,0.65);
 }
 
 /* --- Footer --- */
@@ -248,4 +442,96 @@ body {
         gap: 20px;
     }
     .org-item img { margin-bottom: 0; }
+}
+
+/* --- Register Page Custom Styles --- */
+.registration-notes ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.registration-notes li {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    position: relative;
+    padding-left: 15px; /* Space for the bullet point */
+}
+
+.registration-notes li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 30px;
+    color: #215DFF;
+}
+
+.iframe-container {
+    margin-top: 30px;
+}
+
+
+/* --- Pricing Section Styles --- */
+.pricing-section {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+.pricing-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.pricing-table {
+    text-align: center;
+    background-color: #fff;
+    font-size: 14px;
+}
+.pricing-table thead th {
+    background-color: #f8f9fa;
+    font-weight: 500;
+    vertical-align: middle;
+}
+.pricing-table td, .pricing-table th {
+    vertical-align: middle;
+}
+.pricing-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+.pricing-details {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+    padding-left: 1rem;
+
+}
+.pricing-details p {
+    margin-bottom: 5px;
+}
+.pricing-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+.pricing-details ul li::before {
+    content: '•';
+    color: #215DFF;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* --- Schedule Page Additions --- */
+.session-chair {
+    padding: 15px 30px 0px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    /* border-bottom: 1px solid #f0f0f0; */
 }

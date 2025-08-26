@@ -26,3 +26,56 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const speakerElements = document.querySelectorAll('.session-speaker');
+    
+    speakerElements.forEach(element => {
+        element.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-bs-target');
+            const targetElement = document.querySelector(targetId);
+            const isExpanded = targetElement.classList.contains('show');
+            
+            // 切换展开/收起状态
+            if (isExpanded) {
+                this.classList.remove('expanded');
+            } else {
+                this.classList.add('expanded');
+            }
+        });
+    });
+});
+
+
+// --- Schedule Page Scrolling ---
+document.addEventListener('DOMContentLoaded', function() {
+    const scheduleTabsContainer = document.querySelector('.schedule-tabs');
+    if (scheduleTabsContainer) {
+        const scheduleTabs = scheduleTabsContainer.querySelectorAll('.nav-link');
+
+        scheduleTabs.forEach(tab => {
+            tab.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Update active class
+                scheduleTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Scroll to target
+                const targetSelector = this.getAttribute('data-target');
+                const targetElement = document.querySelector(targetSelector);
+
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // 20px extra space
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+});
