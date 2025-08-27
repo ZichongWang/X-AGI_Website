@@ -136,7 +136,7 @@ body {
 .page-header p { font-size: 24px; margin-top: 4px; }
 .btn-download {
     position: absolute;
-    right: 0;
+    right: 30px;
     bottom: 0;
     border: 1px solid #fff;
     border-radius: 4px;
@@ -189,7 +189,7 @@ body {
     border-color: #215DFF;
 }
 .schedule-card .card-body { padding: 0; }
-.session-list { padding: 15px 0; }
+.session-list { padding: 0 0 15px; }
 .session-item {
     padding: 15px 30px;
     border-bottom: 1px solid #eee;
@@ -537,7 +537,7 @@ body {
 
 /* --- Schedule Page Additions --- */
 .session-chair {
-    padding: 15px 30px 0px;
+    padding: 20px 30px 0px;
     font-size: 16px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.85);
