@@ -95,8 +95,8 @@ body {
 }
 .hero-date {
     color: #fff;
-    font-size: 16px;
-    margin-top: 110px;
+    font-size: 18px;
+    margin-top: 90px;
 }
 .btn-hero-register {
     width: 168px; height: 54px; background-color: #fff; color: #386EFF;
@@ -117,8 +117,8 @@ body {
 }
 .hero-footer p {
     color: #fff;
-    font-size: 12px;
-    line-height: 18px; /* Adjust line height */
+    font-size: 13px;
+    line-height: 20px; /* Adjust line height */
     margin-bottom: 0;
 }
 
