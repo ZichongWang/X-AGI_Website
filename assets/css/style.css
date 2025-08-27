@@ -73,7 +73,7 @@ body {
 .hero-section {
     height: 100vh;
     min-height: 700px; /* Adjusted for better spacing */
-    background: url('../images/bg_home.png') no-repeat center center/cover;
+    background: url('../images/bg_new.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     align-items: center;
