@@ -28,21 +28,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const speakerElements = document.querySelectorAll('.session-speaker');
-    
-    speakerElements.forEach(element => {
-        element.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-bs-target');
-            const targetElement = document.querySelector(targetId);
-            const isExpanded = targetElement.classList.contains('show');
-            
-            // 切换展开/收起状态
-            if (isExpanded) {
-                this.classList.remove('expanded');
+    // 让展开箭头状态与 Bootstrap 折叠组件真实状态保持同步
+    const togglers = document.querySelectorAll('.session-speaker[data-bs-target]');
+
+    togglers.forEach(toggler => {
+        const targetSelector = toggler.getAttribute('data-bs-target');
+        const target = document.querySelector(targetSelector);
+        if (!target) return;
+
+        const syncArrow = () => {
+            if (target.classList.contains('show')) {
+                toggler.classList.add('expanded');
             } else {
-                this.classList.add('expanded');
+                toggler.classList.remove('expanded');
             }
-        });
+        };
+
+        // 初始化箭头方向
+        syncArrow();
+
+    // 在折叠/展开开始时立即同步箭头，提升响应速度
+    target.addEventListener('show.bs.collapse', () => toggler.classList.add('expanded'));
+    target.addEventListener('hide.bs.collapse', () => toggler.classList.remove('expanded'));
+    // 结束时再兜底同步一次，防止异常导致状态不同步
+    target.addEventListener('shown.bs.collapse', syncArrow);
+    target.addEventListener('hidden.bs.collapse', syncArrow);
     });
 });
 
