@@ -159,7 +159,13 @@ body {
 .info-card .card-body { padding: 30px; font-size: 14px; line-height: 22px; color: #333; }
 .org-list hr { margin: 30px 0; }
 .org-item { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
-.org-item img { height: 44px; width: auto; flex-shrink: 0; }
+.org-item img {
+    max-width: 100%;     /* never exceed container width */
+    height: auto;        /* preserve aspect ratio */
+    max-height: 44px;    /* keep visual height consistent */
+    width: auto;         /* allow natural width until capped by max-width */
+    flex-shrink: 0;
+}
 .org-item p { margin: 0; }
 
 /* --- Schedule Page --- */
@@ -252,6 +258,12 @@ body {
     line-height: 1.6;
     color: #555;
 }
+.speaker-bio p { margin: 0 0 10px; }
+.speaker-bio p:last-child { margin-bottom: 0; }
+
+/* Optional: if abstracts also need paragraphs */
+.speaker-abstract p { margin: 0 0 10px; }
+.speaker-abstract p:last-child { margin-bottom: 0; }
 .session-speaker {
     cursor: pointer;
     display: flex;
