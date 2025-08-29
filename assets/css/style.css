@@ -77,8 +77,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content to the top */
-    padding: 325px 15px 30px 15px; /* Set top padding to push content down */
+    justify-content: space-between; /* Distribute content and footer to avoid overlap */
+    padding: clamp(100px, 20vh, 220px) 15px 30px 15px; /* Responsive top padding */
     text-align: center;
     position: relative;
     box-sizing: border-box;
@@ -109,11 +109,9 @@ body {
     color: #386EFF; /* 确保文字颜色不变 */
 }
 .hero-footer {
-    position: absolute;
-    bottom: 30px; /* Adjust distance from bottom */
-    left: 0;
-    right: 0;
-    padding: 0 15px;
+    /* Let footer participate in flex layout at the bottom */
+    margin-top: auto;
+    padding: 0 15px 30px 15px; /* keep bottom spacing */
 }
 .hero-footer p {
     color: #fff;
@@ -166,9 +164,12 @@ body {
 
 /* --- Schedule Page --- */
 .schedule-tabs {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 across on wide screens */
     gap: 10px;
+}
+.schedule-tabs .nav-item {
+    width: 100%; /* grid item spans full column */
 }
 .schedule-tabs .nav-link {
     height: 40px;
@@ -182,6 +183,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 100%; /* fill cell horizontally */
 }
 .schedule-tabs .nav-link.active {
     background-color: #215DFF;
@@ -441,7 +443,10 @@ body {
 }
 
 @media (max-width: 767.98px) {
-    .hero-section .content-wrapper { margin-top: -15%; }
+    /* 2x2 grid for schedule tabs on small screens */
+    .schedule-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero-section { padding-top: 100px; }
+    .hero-section .content-wrapper { margin-top: 0; }
     .hero-date { margin-top: 60px; }
     .page-header { height: auto; min-height: 250px; padding: 80px 0 20px 0; }
     .org-item { 
@@ -452,6 +457,24 @@ body {
     }
     .org-item img { margin-bottom: 0; }
 }
+
+/* --- Mobile tweaks for long schedule headers --- */
+@media (max-width: 575.98px) {
+    .info-card .card-header {
+        height: auto;           /* allow multiple lines */
+        min-height: 50px;       /* keep minimum height consistent */
+        padding: 8px 16px;      /* tighter padding on mobile */
+        font-size: 16px;        /* slightly smaller font */
+        line-height: 1.35;      /* comfortable multi-line spacing */
+        white-space: normal;    /* enable wrapping */
+        overflow-wrap: anywhere;/* avoid overflow from long tokens */
+        text-wrap: balance;     /* nicer line breaks in supporting browsers */
+    align-items: center;    /* keep single-line vertically centered */
+    }
+}
+
+/* Temporarily hide the "全部" tab (first item) */
+.schedule-tabs .nav-item:first-child { display: none !important; }
 
 /* --- Register Page Custom Styles --- */
 .registration-notes ul {
