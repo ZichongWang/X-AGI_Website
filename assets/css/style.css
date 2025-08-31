@@ -86,6 +86,8 @@ body {
 .hero-section .content-wrapper {
     padding-top: 0;
     margin-top: 0; /* Remove dynamic margin */
+    /* Add space from footer so CTA isn't too close */
+    margin-bottom: clamp(40px, 8vh, 100px);
 }
 .hero-title-img {
     /* Larger, responsive title image on homepage */
@@ -98,17 +100,18 @@ body {
     color: #fff;
     /* Larger, responsive date text on homepage */
     font-size: clamp(18px, 1.6vw, 24px);
-    margin-top: 90px;
+    /* Closer to the title, responsive spacing */
+    margin-top: clamp(28px, 4vh, 56px);
 }
 .btn-hero-register {
-    width: 168px; height: 54px; background-color: #fff; color: #386EFF;
+    width: 160px; height: 50px; background-color: rgba(255,255,255,0.8); color: #2d5ad7;
     /* Slightly larger CTA text */
     font-size: 22px; font-weight: 500; border-radius: 32px; margin-top: 24px;
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none;
 }
 .btn-hero-register:hover {
-    background-color: rgba(255, 255, 255, 0.7); /* 设置背景为90%不透明度的白色 */
+    background-color: rgba(255, 255, 255, 0.75); /* 更淡的白色提升舒适度 */
     color: #386EFF; /* 确保文字颜色不变 */
 }
 .hero-footer {
@@ -122,6 +125,14 @@ body {
     font-size: clamp(13px, 1.05vw, 17px);
     line-height: 1.6; /* comfortable reading */
     margin-bottom: 0;
+}
+/* Image-based hero footer (replaces text list) */
+.hero-footer-img {
+    max-width: min(550px, 95%);
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 .icp-info {
     color: rgba(255,255,255,0.3);
