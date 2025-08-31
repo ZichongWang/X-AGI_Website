@@ -88,19 +88,22 @@ body {
     margin-top: 0; /* Remove dynamic margin */
 }
 .hero-title-img {
-    width: 550px;
-    height: 180px;
-    max-width: 90%;
+    /* Larger, responsive title image on homepage */
+    width: clamp(560px, 60vw, 780px);
+    height: auto;        /* keep aspect ratio */
+    max-width: 95%;      /* still fit narrow screens */
     margin-top: 0; /* Reset top margin */
 }
 .hero-date {
     color: #fff;
-    font-size: 18px;
+    /* Larger, responsive date text on homepage */
+    font-size: clamp(18px, 1.6vw, 24px);
     margin-top: 90px;
 }
 .btn-hero-register {
     width: 168px; height: 54px; background-color: #fff; color: #386EFF;
-    font-size: 20px; font-weight: 500; border-radius: 32px; margin-top: 24px;
+    /* Slightly larger CTA text */
+    font-size: 22px; font-weight: 500; border-radius: 32px; margin-top: 24px;
     display: inline-flex; align-items: center; justify-content: center;
     text-decoration: none;
 }
@@ -110,14 +113,20 @@ body {
 }
 .hero-footer {
     /* Let footer participate in flex layout at the bottom */
-    margin-top: auto;
-    padding: 0 15px 30px 15px; /* keep bottom spacing */
+    margin-top: auto;           /* push footer down, icp will be below */
+    padding: 0 15px 10px 15px;  /* reduce bottom padding since ICP follows */
 }
 .hero-footer p {
     color: #fff;
-    font-size: 13px;
-    line-height: 20px; /* Adjust line height */
+    /* Larger, responsive footer lines on homepage */
+    font-size: clamp(13px, 1.05vw, 17px);
+    line-height: 1.6; /* comfortable reading */
     margin-bottom: 0;
+}
+.icp-info {
+    color: rgba(255,255,255,0.3);
+    font-size: clamp(11px, 0.85vw, 13px);
+    margin: 0 0 20px 0;         /* bottom breathing room */
 }
 
 /* --- Secondary Pages --- */
@@ -457,7 +466,8 @@ body {
 @media (max-width: 767.98px) {
     /* 2x2 grid for schedule tabs on small screens */
     .schedule-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .hero-section { padding-top: 100px; }
+    /* Push hero content lower on small screens */
+    .hero-section { padding-top: 140px; }
     .hero-section .content-wrapper { margin-top: 0; }
     .hero-date { margin-top: 60px; }
     .page-header { height: auto; min-height: 250px; padding: 80px 0 20px 0; }
@@ -472,6 +482,8 @@ body {
 
 /* --- Mobile tweaks for long schedule headers --- */
 @media (max-width: 575.98px) {
+    /* Extra push on extra-small screens */
+    .hero-section { padding-top: 160px; }
     .info-card .card-header {
         height: auto;           /* allow multiple lines */
         min-height: 50px;       /* keep minimum height consistent */
