@@ -128,12 +128,38 @@ body {
 }
 /* Image-based hero footer (replaces text list) */
 .hero-footer-img {
-    max-width: min(550px, 95%);
+    max-width: min(1500px, 95%);
     width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
 }
+/* Separate control for the two footer images */
+.footer-img-portrait { display: block; }
+.footer-img-middle { display: none; }
+.footer-img-landscape { display: none; }
+
+/* Switch at 800px: show landscape, hide portrait */
+/* >=800px use middle variant, hide others */
+@media (min-width: 900px) {
+    .footer-img-portrait { display: none; }
+    .footer-img-middle { display: block; }
+    .footer-img-landscape { display: none; }
+}
+
+/* >=1200px switch to landscape */
+@media (min-width: 1500px) {
+    .footer-img-middle { display: none; }
+    .footer-img-landscape { display: block; }
+}
+
+/* Optional: fine-tune max widths per variant */
+/* .footer-img-portrait { max-width: 95%; } */
+.footer-img-portrait { max-width: min(500px, 95%); }
+.footer-img-middle { max-width: 95%; }
+.footer-img-middle { max-width: min(1200px, 95%); }
+.footer-img-landscape { max-width: 95%; }
+/* .footer-img-landscape { max-width: min(1500px, 95%); } */
 .icp-info {
     color: rgba(255,255,255,0.3);
     font-size: clamp(11px, 0.85vw, 13px);
