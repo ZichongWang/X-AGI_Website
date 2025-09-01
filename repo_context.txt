@@ -90,7 +90,7 @@ X-AGI_Website/
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="content-wrapper">
-            <img src="assets/images/home_title.svg" alt="2025 X-智能大会" class="hero-title-img">
+            <img src="assets/images/home_title.svg" alt="2025 X智能大会" class="hero-title-img">
             <p class="hero-date">2025.10.17–10.19  北京会议中心</p>
             <a href="register.html" class="btn btn-hero-register">报名参会</a>
         </div>
@@ -218,7 +218,7 @@ X-AGI_Website/
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container custom-container">
-            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
+            <p>版权所有 2025 X智能大会 & 第 18 届中国 R 会议</p>
             <p>联系方式: xagi-2025@cosx.org</p>
         </div>
     </footer>
@@ -337,7 +337,7 @@ X-AGI_Website/
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container custom-container">
-            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
+            <p>版权所有 2025 X智能大会 & 第 18 届中国 R 会议</p>
             <p>联系方式: xagi-2025@cosx.org</p>
         </div>
     </footer>
@@ -683,7 +683,7 @@ if __name__ == "__main__":
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container custom-container">
-            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
+            <p>版权所有 2025 X智能大会 & 第 18 届中国 R 会议</p>
             <p>联系方式: xagi-2025@cosx.org</p>
         </div>
     </footer>
@@ -1065,7 +1065,7 @@ if __name__ == "__main__":
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container custom-container">
-            <p>版权所有 2025 X-智能大会 & 第 18 届中国 R 会议</p>
+            <p>版权所有 2025 X智能大会 & 第 18 届中国 R 会议</p>
             <p>联系方式: xagi-2025@cosx.org</p>
         </div>
     </footer>

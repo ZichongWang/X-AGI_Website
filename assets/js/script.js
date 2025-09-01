@@ -90,6 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         scheduleTabs.forEach(tab => {
             tab.addEventListener('click', function(event) {
+                // If this is the expand-all control, let its own handler manage and skip filter switching
+                if (this.getAttribute('data-role') === 'expand-toggle') {
+                    return; // expand-all has its own handler below
+                }
                 event.preventDefault();
 
                 // Update active class
@@ -109,6 +113,40 @@ document.addEventListener('DOMContentLoaded', function() {
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
+                }
+            });
+        });
+    }
+    // Expand/Collapse all talks on schedule page
+    const expandAllBtn = document.getElementById('expandAllTalks');
+    if (expandAllBtn) {
+        let expanded = false;
+        const updateButtonLabel = () => {
+            expandAllBtn.textContent = expanded ? '收起全部演讲' : '展开全部演讲';
+            // also reflect active style like tabs without interfering with filter state
+            if (expanded) expandAllBtn.classList.add('active'); else expandAllBtn.classList.remove('active');
+        };
+        updateButtonLabel();
+
+        expandAllBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const collapses = document.querySelectorAll('.session-list .collapse');
+            collapses.forEach(el => {
+                const bsCollapse = bootstrap.Collapse.getOrCreateInstance(el, { toggle: false });
+                if (!expanded) {
+                    bsCollapse.show();
+                } else {
+                    bsCollapse.hide();
+                }
+            });
+            expanded = !expanded;
+            updateButtonLabel();
+
+            // sync arrow state for all togglers
+            document.querySelectorAll('.session-speaker[data-bs-target]').forEach(toggler => {
+                const target = document.querySelector(toggler.getAttribute('data-bs-target'));
+                if (target) {
+                    if (expanded) toggler.classList.add('expanded'); else toggler.classList.remove('expanded');
                 }
             });
         });
