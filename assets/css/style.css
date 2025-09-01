@@ -2,6 +2,12 @@
 :root {
     --bs-primary-rgb: 33, 93, 255; /* For button colors */
     --navbar-height: 78px; /* Keep navbar height in one place */
+    --iframe-gutter: 12px; /* Narrow side padding for edge-to-edge iframe */
+    --nav-overlay-duration: 0.02s; /* Unified duration for bar & menu */
+}
+/* Disable smooth scroll globally when needed to avoid visible jumps */
+html.no-smooth-scroll {
+    scroll-behavior: auto !important;
 }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -17,11 +23,31 @@ body {
     padding-right: 15px;
 }
 
+/* Narrower gutters for non-home pages (main content) on small screens */
+@media (max-width: 1000px) {
+    .main-content .custom-container {
+        width: calc(100vw - 6vw); /* 94vw */
+        margin-left: 3vw;
+        margin-right: 3vw;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (max-width: 640px) {
+    .main-content .custom-container {
+        width: calc(100vw - 4vw); /* 96vw */
+        margin-left: 2vw;
+        margin-right: 2vw;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
 /* --- Navbar --- */
 .navbar {
     height: var(--navbar-height);
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--nav-overlay-duration) ease;
     padding: 0.5rem 0;
     will-change: transform, background-color;
     transform: translateZ(0); /* promote to its own layer to avoid flicker */
@@ -83,7 +109,7 @@ body {
     height: 2px;
     background-color: #fff;
     border-radius: 1px;
-    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.25s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
     will-change: transform, opacity;
 }
 /* Toggle to X when menu is open */
@@ -713,7 +739,14 @@ body {
         width: 100%;
     overscroll-behavior: contain; /* avoid scroll chaining causing jumps */
     scroll-behavior: auto; /* avoid smooth scroll conflicts while menu open */
+    overflow-anchor: none; /* disable scroll anchoring while menu is open */
     }
+    /* Ensure the top bar remains visible when the menu is open */
+    .navbar { z-index: 1050; }
+    .nav-open .navbar { 
+        background-color: #1B2B86; /* make bar visible over content */
+    }
+    .navbar-collapse { z-index: 1040; }
     /* Limit collapse height and make it scroll independently to avoid layout shifts */
     .navbar-collapse.collapse.show {
         max-height: calc(100vh - var(--navbar-height));
@@ -722,20 +755,44 @@ body {
     }
     .navbar .nav-link { margin: 10px 0; padding: 10px; text-align: center; }
     .navbar .nav-link.active::after { display: none; }
-    .navbar-collapse {
-    background: rgba(27, 43, 134, 0.95); 
-    padding: 20px; 
-    margin-top: 0; /* prevent pushing content which can cause jump */
-    border-radius: 0; /* full-width overlay looks cleaner on mobile */
-    position: fixed; /* detach from navbar height changes */
-    top: var(--navbar-height); /* equal to .navbar height */
-    left: 0; 
-    right: 0; 
-    width: 100%; 
-    max-height: calc(100vh - var(--navbar-height)); 
-    overflow-y: auto; /* scroll inside panel instead of page */ 
-    -webkit-overflow-scrolling: touch; 
-    overflow-anchor: none; /* avoid scroll anchoring jumps */ 
+    /* Animate open with transform; animate close with transform+opacity */
+    .navbar-collapse { transform: translateY(-8px); }
+    .nav-opening .navbar-collapse {
+        transition: transform var(--nav-overlay-duration) ease;
+        transform: translateY(0);
+        will-change: transform;
+    }
+    .nav-hiding .navbar-collapse {
+        transition: transform var(--nav-overlay-duration) ease-out, opacity var(--nav-overlay-duration) ease-out;
+        transform: translateY(-8px);
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+    /* Use fixed overlay only while opening/visible for smoother close */
+    .navbar-collapse.collapse.show, 
+    .navbar-collapse.collapsing {
+        background: rgba(27, 43, 134, 0.95);
+        padding: 20px;
+        margin-top: 0; /* prevent pushing content which can cause jump */
+        border-radius: 0; /* full-width overlay looks cleaner on mobile */
+        position: fixed; /* detach from navbar height changes */
+        top: var(--navbar-height); /* equal to .navbar height */
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: calc(100vh - var(--navbar-height));
+        overflow-y: auto; /* scroll inside panel instead of page */
+        -webkit-overflow-scrolling: touch;
+        overflow-anchor: none; /* avoid scroll anchoring jumps */
+        will-change: transform, opacity, height; /* smoother animation */
+        transform: translateZ(0); /* promote to its own layer */
+    opacity: 1; /* ensure fully visible on open */
+    }
+    /* During collapsing, remove momentum scroll and hide overflow to avoid stutter */
+    .navbar-collapse.collapsing {
+        -webkit-overflow-scrolling: auto !important;
+        overflow: hidden !important;
+        height: auto !important; /* avoid height-based transition fighting */
     }
     .btn-register { margin-left: 0; }
     .page-header h1 { font-size: 28px; }
@@ -778,12 +835,13 @@ body {
 /* Responsive layout for schedule tabs */
 @media (max-width: 1000px) {
     .schedule-tabs {
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 2 rows x 3 cols */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 2 rows x 3 cols */
+    gap: 8px; /* tighter spacing on portrait */
     }
     .schedule-tabs .nav-link {
         height: auto;            /* allow wrapping */
-        min-height: 44px;
-        padding: 6px 10px;
+    min-height: 42px;
+    padding: 6px 8px;
         line-height: 1.25;
         white-space: normal;
         text-align: center;
@@ -792,11 +850,13 @@ body {
 }
 @media (max-width: 640px) {
     .schedule-tabs {
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 3 rows x 2 cols */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* keep 2 rows x 3 cols on small portrait */
+    gap: 6px;
     }
     .schedule-tabs .nav-link {
-        min-height: 48px;
-        padding: 8px 10px;
+    min-height: 40px;
+    padding: 4px 8px;
+    font-size: 14px;
     }
 }
 
@@ -827,16 +887,20 @@ body {
 
 .iframe-container {
     margin-top: 30px;
-    width: 100%;
-    overflow-x: hidden; /* prevent iframe from spilling on narrow screens */
+    /* Full-bleed inside centered container, with narrow gutters */
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: max(var(--iframe-gutter), env(safe-area-inset-left));
+    padding-right: max(var(--iframe-gutter), env(safe-area-inset-right));
+    overflow: hidden; /* prevent child overflow on narrow screens */
 }
 
-/* Ensure third-party Bagevent iframe stays within container */
-#promote_ticket_iframe {
+.iframe-container iframe {
     display: block;
-    width: 100% !important;
+    width: 100% !important;   /* force fit container */
     max-width: 100% !important;
-    min-width: 0 !important; /* override any fixed min-width injected */
     border: 0;
 }
 

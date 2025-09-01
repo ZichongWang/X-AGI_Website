@@ -35,19 +35,43 @@ document.addEventListener('DOMContentLoaded', function() {
         navCollapse.addEventListener('show.bs.collapse', function () {
             savedScrollY = window.scrollY || window.pageYOffset || 0;
             document.body.classList.add('nav-open');
+            document.body.classList.add('nav-opening');
             // Lock scroll without causing iOS Safari jump
             document.body.style.position = 'fixed';
             document.body.style.top = `-${savedScrollY}px`;
             document.body.style.width = '100%';
         });
+        navCollapse.addEventListener('shown.bs.collapse', function () {
+            // Remove opening state after CSS transition
+            document.body.classList.remove('nav-opening');
+        });
+        // During closing animation keep lock to mirror open
+        navCollapse.addEventListener('hide.bs.collapse', function () {
+            // Reset panel scroll to top to avoid stutter at the end
+            try { this.scrollTop = 0; } catch (e) {}
+            // Temporarily disable smooth scroll to avoid visible jump
+            document.documentElement.classList.add('no-smooth-scroll');
+        // Trigger transform/opacity out animation
+        document.body.classList.add('nav-hiding');
+        });
         navCollapse.addEventListener('hidden.bs.collapse', function () {
-            document.body.classList.remove('nav-open');
-            // Restore scroll position cleanly
-            const y = savedScrollY;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, y);
+            // Defer unlock to next frames to avoid stutter at the end of transition
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+            document.body.classList.remove('nav-hiding');
+                    document.body.classList.remove('nav-open');
+                    const y = savedScrollY;
+                    document.body.style.position = '';
+                    document.body.style.top = '';
+                    document.body.style.width = '';
+                    // Only scroll if we've actually moved
+                    if (Math.abs((window.scrollY || window.pageYOffset || 0) - y) > 1) {
+                        window.scrollTo(0, y);
+                    }
+                    // Re-enable smooth scroll after state is stable
+                    document.documentElement.classList.remove('no-smooth-scroll');
+                });
+            });
         });
     }
 });
