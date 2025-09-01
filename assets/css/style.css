@@ -1,5 +1,6 @@
 /* --- Global & Fonts --- */
 :root {
+    --container-max: 1400px; /* unify container max width across layout */
     --bs-primary-rgb: 33, 93, 255; /* For button colors */
 }
 body {
@@ -7,9 +8,11 @@ body {
     background-color: #f4f7f6;
 }
 .custom-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    /* Always keep 5% viewport margins and fill remaining width */
+    width: calc(100vw - 10vw); /* 90vw */
+    max-width: none; /* remove cap so 5% margins are consistent */
+    margin-left: 5vw;
+    margin-right: 5vw;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -59,111 +62,168 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .btn-register {
-    width: 96px; height: 40px; background-color: #215DFF; color: #fff;
-    font-size: 14px; font-weight: 500; border-radius: 4px;
+    width: 96px; height: 40px; background-color: #215cff7c; color: #fff;
+    font-size: 16px; font-weight: 500; border-radius: 4px;
     display: flex; align-items: center; justify-content: center; text-decoration: none;
     margin-left: 20px;
 }
 .btn-register:hover { 
-    background-color: #658EFF; 
+    background-color: #658eff88; 
     color: #fff; 
 }
 
 /* --- Hero Section (Home) --- */
 .hero-section {
     height: 100vh;
-    min-height: 700px; /* Adjusted for better spacing */
+    min-height: 700px;
     background: url('../images/bg-home-small.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Distribute content and footer to avoid overlap */
-    padding: clamp(100px, 20vh, 220px) 15px 30px 15px; /* Responsive top padding */
-    text-align: center;
+    justify-content: center;
     position: relative;
     box-sizing: border-box;
+    padding: 78px 0 40px 0; /* Top padding = navbar height */
 }
-.hero-section .content-wrapper {
-    padding-top: 0;
-    margin-top: 0; /* Remove dynamic margin */
-    /* Add space from footer so CTA isn't too close */
-    margin-bottom: clamp(40px, 8vh, 100px);
+
+.hero-section .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* 固定距离导航栏 90px */
+    justify-content: flex-start;
+    padding-top: 90px;
 }
-.hero-title-img {
-    /* Larger, responsive title image on homepage */
-    width: clamp(560px, 60vw, 780px);
-    height: auto;        /* keep aspect ratio */
-    max-width: 95%;      /* still fit narrow screens */
-    margin-top: 0; /* Reset top margin */
+
+/* Logo */
+.hero-logo {
+    margin-bottom: 38px;
 }
-.hero-date {
+
+.hero-logo img {
+    max-width: 248px;
+    height: auto;
+}
+
+/* Main Title */
+.hero-main-title {
+    margin-bottom: 100px;
+}
+
+.hero-main-title img {
+    max-width: 678px;
+    height: auto;
+}
+
+/* Time and Location Info */
+.hero-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.info-icon {
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.info-text {
+    font-size: 18px;
+    color: #ffffffd3;
+    white-space: nowrap;
+}
+
+/* Register Button */
+.hero-register {
+    margin-bottom: 60px; /* Add more space to push organizers down */
+}
+
+.btn-new-register {
+    width: 138px;
+    height: 44px;
+    background-color: #215cffa8;
     color: #fff;
-    /* Larger, responsive date text on homepage */
-    font-size: clamp(18px, 1.6vw, 24px);
-    /* Closer to the title, responsive spacing */
-    margin-top: clamp(28px, 4vh, 56px);
-}
-.btn-hero-register {
-    width: 160px; height: 50px; background-color: rgba(255,255,255,0.8); color: #2d5ad7;
-    /* Slightly larger CTA text */
-    font-size: 22px; font-weight: 500; border-radius: 32px; margin-top: 24px;
-    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
-.btn-hero-register:hover {
-    background-color: rgba(255, 255, 255, 0.75); /* 更淡的白色提升舒适度 */
-    color: #386EFF; /* 确保文字颜色不变 */
-}
-.hero-footer {
-    /* Let footer participate in flex layout at the bottom */
-    margin-top: auto;           /* push footer down, icp will be below */
-    padding: 0 15px 10px 15px;  /* reduce bottom padding since ICP follows */
-}
-.hero-footer p {
+
+.btn-new-register:hover {
+    background-color: rgba(33, 93, 255, 0.8);
     color: #fff;
-    /* Larger, responsive footer lines on homepage */
-    font-size: clamp(13px, 1.05vw, 17px);
-    line-height: 1.6; /* comfortable reading */
+}
+
+/* Organizers Footer */
+.organizers-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 40px; /* Fixed distance from bottom per layout */
+    /* Align left edge with .custom-container left boundary */
+    left: 0;
+    right: 0;
+    transform: none;
+    width: auto;
+    max-width: none;
+    /* align to container left/right edges: 5vw margin + 15px inner padding */
+    padding-left: calc(5vw + 15px);
+    padding-right: calc(5vw + 15px);
+}
+
+.organizer-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.organizer-row:last-child {
     margin-bottom: 0;
 }
-/* Image-based hero footer (replaces text list) */
-.hero-footer-img {
-    max-width: min(1500px, 95%);
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-/* Separate control for the two footer images */
-.footer-img-portrait { display: block; }
-.footer-img-middle { display: none; }
-.footer-img-landscape { display: none; }
 
-/* Switch at 800px: show landscape, hide portrait */
-/* >=800px use middle variant, hide others */
-@media (min-width: 900px) {
-    .footer-img-portrait { display: none; }
-    .footer-img-middle { display: block; }
-    .footer-img-landscape { display: none; }
+.organizer-label {
+    font-size: 14px;
+    color: #fff;
+    flex-shrink: 0;
+    margin-right: 8px;
 }
 
-/* >=1200px switch to landscape */
-@media (min-width: 1500px) {
-    .footer-img-middle { display: none; }
-    .footer-img-landscape { display: block; }
+.organizer-logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-/* Optional: fine-tune max widths per variant */
-/* .footer-img-portrait { max-width: 95%; } */
-.footer-img-portrait { max-width: min(500px, 95%); }
-.footer-img-middle { max-width: 95%; }
-.footer-img-middle { max-width: min(1200px, 95%); }
-.footer-img-landscape { max-width: 95%; }
-/* .footer-img-landscape { max-width: min(1500px, 95%); } */
+.organizer-logos img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
 .icp-info {
     color: rgba(255,255,255,0.3);
     font-size: clamp(11px, 0.85vw, 13px);
-    margin: 0 0 20px 0;         /* bottom breathing room */
+    margin: 20px 0 0 0;
+    text-align: center;
+    padding: 0 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
 }
 
 /* --- Secondary Pages --- */
@@ -506,10 +566,69 @@ body {
 @media (max-width: 767.98px) {
     /* 2x2 grid for schedule tabs on small screens */
     .schedule-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    /* Push hero content lower on small screens */
-    .hero-section { padding-top: 140px; }
-    .hero-section .content-wrapper { margin-top: 0; }
-    .hero-date { margin-top: 60px; }
+    
+    /* Hero section mobile adjustments */
+    .hero-section {
+        padding: 78px 0 20px 0;
+    }
+    
+    .hero-section .container {
+        justify-content: flex-start;
+        padding-top: 40px;
+    }
+    
+    .hero-logo img {
+        max-width: 200px; /* Smaller logo on mobile */
+    }
+    
+    .hero-main-title img {
+        max-width: 90%; /* Responsive main title */
+    }
+    
+    .hero-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .hero-register {
+        margin-bottom: 40px;
+    }
+    
+    .organizers-footer {
+        position: static;
+        margin-top: auto;
+        bottom: auto;
+        /* 重置桌面端的水平居中与额外内边距，保持与版心左对齐 */
+        left: auto;
+        right: auto;
+        transform: none;
+        width: auto;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .organizer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .organizer-logos {
+        gap: 12px;
+    }
+    
+    .organizer-logos img {
+        height: 24px; /* Smaller logos on mobile */
+    }
+    
+    .icp-info {
+        position: static;
+        margin-top: 20px;
+        bottom: auto;
+    }
+    
     .page-header { height: auto; min-height: 250px; padding: 80px 0 20px 0; }
     .org-item { 
         flex-direction: column; 
@@ -522,8 +641,27 @@ body {
 
 /* --- Mobile tweaks for long schedule headers --- */
 @media (max-width: 575.98px) {
-    /* Extra push on extra-small screens */
-    .hero-section { padding-top: 160px; }
+    /* Extra mobile optimizations */
+    .hero-section .container {
+        padding-top: 30px;
+    }
+    
+    .hero-logo img {
+        max-width: 180px;
+    }
+    
+    .hero-main-title img {
+        max-width: 95%;
+    }
+    
+    .organizer-logos img {
+        height: 20px;
+    }
+    
+    .hero-register {
+        margin-bottom: 30px;
+    }
+    
     .info-card .card-header {
         height: auto;           /* allow multiple lines */
         min-height: 50px;       /* keep minimum height consistent */
