@@ -28,6 +28,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Stabilize navbar on mobile: lock body scroll to preserve position when menu is open
+    const navCollapse = document.getElementById('navbarNav');
+    let savedScrollY = 0;
+    if (navCollapse) {
+        navCollapse.addEventListener('show.bs.collapse', function () {
+            savedScrollY = window.scrollY || window.pageYOffset || 0;
+            document.body.classList.add('nav-open');
+            // Lock scroll without causing iOS Safari jump
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${savedScrollY}px`;
+            document.body.style.width = '100%';
+        });
+        navCollapse.addEventListener('hidden.bs.collapse', function () {
+            document.body.classList.remove('nav-open');
+            // Restore scroll position cleanly
+            const y = savedScrollY;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, y);
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     // 让展开箭头状态与 Bootstrap 折叠组件真实状态保持同步
     const togglers = document.querySelectorAll('.session-speaker[data-bs-target]');
 

@@ -18,7 +18,11 @@
                 <img src="assets/images/logo.svg" alt="X-AGI Logo" class="logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="hamburger" aria-hidden="true">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
@@ -40,32 +44,37 @@
 
     <!-- Hero Section -->
     <header class="hero-section">
+        <!-- Horizontal layout (for wide screens) -->
+        <div class="hero-horizontal">
         <div class="container custom-container">
-            <!-- Logo -->
-            <div class="hero-logo">
-                <img src="assets/images/index/logo.svg" alt="X-AGI Logo" width="248" height="48">
-            </div>
-            
-            <!-- Main Title -->
-            <div class="hero-main-title">
-                <img src="assets/images/index/主图.svg" alt="2025 X智能大会 第18届中国R会议" width="678" height="72">
-            </div>
-            
-            <!-- Time and Location -->
-            <div class="hero-info">
-                <div class="info-item">
-                    <img src="assets/images/index/time.svg" alt="时间" width="16" height="16" class="info-icon">
-                    <span class="info-text">2025.10.17-10.19</span>
+            <!-- Main Content Wrapper -->
+            <div class="hero-main-content">
+                <!-- Logo -->
+                <div class="hero-logo">
+                    <img src="assets/images/index/logo.svg" alt="X-AGI Logo" width="248" height="48">
                 </div>
-                <div class="info-item">
-                    <img src="assets/images/index/place.svg" alt="地点" width="16" height="16" class="info-icon">
-                    <span class="info-text">北京会议中心</span>
+                
+                <!-- Main Title -->
+                <div class="hero-main-title">
+                    <img src="assets/images/index/主图.svg" alt="2025 X智能大会 第18届中国R会议" width="678" height="72">
                 </div>
-            </div>
-            
-            <!-- Register Button -->
-            <div class="hero-register">
-                <a href="register.html" class="btn btn-new-register">报名参会</a>
+                
+                <!-- Time and Location -->
+                <div class="hero-info">
+                    <div class="info-item">
+                        <img src="assets/images/index/time.svg" alt="时间" width="16" height="16" class="info-icon">
+                        <span class="info-text">2025.10.17-10.19</span>
+                    </div>
+                    <div class="info-item">
+                        <img src="assets/images/index/place.svg" alt="地点" width="16" height="16" class="info-icon">
+                        <span class="info-text">北京会议中心</span>
+                    </div>
+                </div>
+                
+                <!-- Register Button -->
+                <div class="hero-register">
+                    <a href="register.html" class="btn btn-new-register">报名参会</a>
+                </div>
             </div>
             
             <!-- Organizers Footer -->
@@ -92,6 +101,20 @@
                         <img src="assets/images/logos_t/logo_kuande.png" alt="宽德投资" height="30">
                     </div>
                 </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Vertical layout (for narrow screens) -->
+        <div class="hero-vertical">
+            <div class="content-wrapper">
+                <img src="assets/images/home_title.svg" alt="2025 X-智能大会" class="hero-title-img">
+                <p class="hero-date">2025.10.17–10.19  北京会议中心</p>
+                <a href="register.html" class="btn btn-hero-register">报名参会</a>
+            </div>
+            <div class="hero-footer">
+                <!-- Portrait-only footer image on vertical layout -->
+                <img src="assets/images/footer.png" alt="主办、协办、赞助单位（小屏-竖向）" class="hero-footer-img footer-img-portrait" loading="lazy">
             </div>
         </div>
         

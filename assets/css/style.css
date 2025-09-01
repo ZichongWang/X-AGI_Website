@@ -1,7 +1,7 @@
 /* --- Global & Fonts --- */
 :root {
-    --container-max: 1400px; /* unify container max width across layout */
     --bs-primary-rgb: 33, 93, 255; /* For button colors */
+    --navbar-height: 78px; /* Keep navbar height in one place */
 }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -19,10 +19,12 @@ body {
 
 /* --- Navbar --- */
 .navbar {
-    height: 78px;
+    height: var(--navbar-height);
     background-color: transparent;
     transition: background-color 0.3s ease;
     padding: 0.5rem 0;
+    will-change: transform, background-color;
+    transform: translateZ(0); /* promote to its own layer to avoid flicker */
 }
 .navbar.scrolled { 
     background-color: #1B2B86; 
@@ -30,6 +32,12 @@ body {
 .navbar .logo { 
     width: 87px; 
     height: 36px; 
+}
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    height: var(--navbar-height);
+    padding: 0; /* remove default vertical padding for perfect centering */
 }
 .navbar .nav-link {
     color: #fff;
@@ -52,14 +60,41 @@ body {
 .navbar-toggler { 
     border: none; 
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--navbar-height);
+    line-height: 1;
 }
 .navbar-toggler:focus {
     box-shadow: none;
 }
-.navbar-toggler-icon {
-    width: 20px;
+/* Animated hamburger icon */
+.navbar-toggler .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
     height: 18px;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-toggler .hamburger .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.25s ease;
+    will-change: transform, opacity;
+}
+/* Toggle to X when menu is open */
+.navbar-toggler[aria-expanded="true"] .hamburger .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggler[aria-expanded="true"] .hamburger .line:nth-child(2) {
+    opacity: 0;
+}
+.navbar-toggler[aria-expanded="true"] .hamburger .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 .btn-register {
     width: 96px; height: 40px; background-color: #215cff7c; color: #fff;
@@ -76,22 +111,48 @@ body {
 .hero-section {
     height: 100vh;
     min-height: 700px;
-    background: url('../images/bg-home-small.png') no-repeat center center/cover;
+    background: url('../images/bg_new.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
-    padding: 78px 0 40px 0; /* Top padding = navbar height */
+    padding: var(--navbar-height) 0 40px 0;
 }
 
 .hero-section .container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* 固定距离导航栏 90px */
-    justify-content: flex-start;
-    padding-top: 90px;
+    justify-content: center;
+    padding-top: 0px;
+}
+
+/* Switchable hero layouts */
+.hero-horizontal { 
+    display: none; 
+}
+
+.hero-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+/* Enable horizontal layout on wide screens */
+@media (min-width: 1100px) {
+    .hero-horizontal { display: block; }
+    .hero-vertical { display: none; }
+}
+
+/* Main Content Wrapper (for horizontal layout) */
+.hero-main-content {
+    transform: translateY(-75px);
 }
 
 /* Logo */
@@ -106,7 +167,7 @@ body {
 
 /* Main Title */
 .hero-main-title {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 .hero-main-title img {
@@ -142,7 +203,7 @@ body {
 
 /* Register Button */
 .hero-register {
-    margin-bottom: 60px; /* Add more space to push organizers down */
+    margin-bottom: 60px;
 }
 
 .btn-new-register {
@@ -165,19 +226,17 @@ body {
     color: #fff;
 }
 
-/* Organizers Footer */
-.organizers-footer {
+/* Organizers Footer (horizontal layout only) */
+.hero-horizontal .organizers-footer {
     margin-top: auto;
     padding-top: 20px;
     position: absolute;
-    bottom: 40px; /* Fixed distance from bottom per layout */
-    /* Align left edge with .custom-container left boundary */
+    bottom: 40px;
     left: 0;
     right: 0;
     transform: none;
     width: auto;
     max-width: none;
-    /* align to container left/right edges: 5vw margin + 15px inner padding */
     padding-left: calc(5vw + 15px);
     padding-right: calc(5vw + 15px);
 }
@@ -226,6 +285,60 @@ body {
     right: 0;
 }
 
+/* -------- Vertical Hero Styles -------- */
+.hero-vertical .content-wrapper {
+    padding-top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translateY(0px);
+}
+
+.hero-vertical .hero-title-img {
+    width: clamp(560px, 60vw, 780px);
+    height: auto;
+    max-width: 95%;
+    margin-top: 0;
+}
+
+.hero-vertical .hero-date {
+    color: #fff;
+    font-size: clamp(18px, 1.6vw, 24px);
+    margin-top: clamp(28px, 4vh, 56px);
+}
+
+.hero-vertical .btn-hero-register {
+    width: 160px; 
+    height: 50px; 
+    background-color: rgba(255,255,255,0.8); 
+    color: #2d5ad7;
+    font-size: 22px; 
+    font-weight: 500; 
+    border-radius: 32px; 
+    margin-top: 24px;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-decoration: none;
+}
+
+.hero-vertical .btn-hero-register:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #386EFF;
+}
+
+.hero-vertical .hero-footer { 
+    margin-top: auto; 
+    padding: 0 15px 10px 15px; 
+}
+
+.hero-vertical .hero-footer-img {
+    max-width: min(550px, 95%);
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 /* --- Secondary Pages --- */
 .page-header {
     height: 300px;
@@ -253,38 +366,71 @@ body {
     color: #fff;
 }
 
-.main-content { padding: 30px 0 60px 0; }
+.main-content { 
+    padding: 30px 0 60px 0; 
+}
+
 .info-card {
-    background-color: #fff; box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    border: none; margin-bottom: 30px; border-radius: 4px; overflow: hidden;
+    background-color: #fff; 
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    border: none; 
+    margin-bottom: 30px; 
+    border-radius: 4px; 
+    overflow: hidden;
 }
+
 .info-card .card-header {
-    height: 50px; background-color: #202661; color: #fff;
-    font-size: 18px; font-weight: 500; padding: 0 30px; display: flex; align-items: center;
+    height: 50px; 
+    background-color: #202661; 
+    color: #fff;
+    font-size: 18px; 
+    font-weight: 500; 
+    padding: 0 30px; 
+    display: flex; 
+    align-items: center;
 }
-.info-card .card-body { padding: 30px; font-size: 14px; line-height: 22px; color: #333; }
-.org-list hr { margin: 30px 0; }
-.org-item { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
+
+.info-card .card-body { 
+    padding: 30px; 
+    font-size: 14px; 
+    line-height: 22px; 
+    color: #333; 
+}
+.org-list hr { 
+    margin: 30px 0; 
+}
+
+.org-item { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    align-items: flex-start; 
+}
+
 .org-item img {
-    max-width: 100%;     /* never exceed container width */
-    height: auto;        /* preserve aspect ratio */
-    max-height: 44px;    /* keep visual height consistent */
-    width: auto;         /* allow natural width until capped by max-width */
+    max-width: 100%;
+    height: auto;
+    max-height: 44px;
+    width: auto;
     flex-shrink: 0;
 }
+
 .org-item img.sponsor-kuande {
     max-height: 65px;
 }
-.org-item p { margin: 0; }
+
+.org-item p { 
+    margin: 0; 
+}
 
 /* --- Schedule Page --- */
 .schedule-tabs {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 across on wide screens */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
 }
 .schedule-tabs .nav-item {
-    width: 100%; /* grid item spans full column */
+    width: 100%;
 }
 .schedule-tabs .nav-link {
     height: 40px;
@@ -298,7 +444,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* fill cell horizontally */
+    width: 100%;
 }
 .schedule-tabs .nav-link.active {
     background-color: #215DFF;
@@ -357,7 +503,6 @@ body {
 }
 .speaker-abstract {
     background-color: #fff;
-    /* border-left: 4px solid #215DFF; */
     padding: 15px;
     margin: 15px 0;
     border-radius: 0 6px 6px 0;
@@ -367,12 +512,21 @@ body {
     line-height: 1.6;
     color: #555;
 }
-.speaker-bio p { margin: 0 0 10px; }
-.speaker-bio p:last-child { margin-bottom: 0; }
+.speaker-bio p { 
+    margin: 0 0 10px; 
+}
 
-/* Optional: if abstracts also need paragraphs */
-.speaker-abstract p { margin: 0 0 10px; }
-.speaker-abstract p:last-child { margin-bottom: 0; }
+.speaker-bio p:last-child { 
+    margin-bottom: 0; 
+}
+
+.speaker-abstract p { 
+    margin: 0 0 10px; 
+}
+
+.speaker-abstract p:last-child { 
+    margin-bottom: 0; 
+}
 .session-speaker {
     cursor: pointer;
     display: flex;
@@ -537,20 +691,51 @@ body {
 
 /* --- Footer --- */
 .site-footer {
-    min-height: 82px; background-color: #202661; color: #fff; font-size: 12px;
-    display: flex; align-items: center; padding: 15px 0;
+    min-height: 82px; 
+    background-color: #202661; 
+    color: #fff; 
+    font-size: 12px;
+    display: flex; 
+    align-items: center; 
+    padding: 15px 0;
 }
-.site-footer p { margin: 0; line-height: 18px; }
+
+.site-footer p { 
+    margin: 0; 
+    line-height: 18px; 
+}
 
 /* --- Responsive --- */
 @media (max-width: 991.98px) {
+    body.nav-open {
+        overflow: hidden; /* prevent body from scrolling when menu is open */
+        position: relative;
+        width: 100%;
+    overscroll-behavior: contain; /* avoid scroll chaining causing jumps */
+    scroll-behavior: auto; /* avoid smooth scroll conflicts while menu open */
+    }
+    /* Limit collapse height and make it scroll independently to avoid layout shifts */
+    .navbar-collapse.collapse.show {
+        max-height: calc(100vh - var(--navbar-height));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
     .navbar .nav-link { margin: 10px 0; padding: 10px; text-align: center; }
     .navbar .nav-link.active::after { display: none; }
     .navbar-collapse {
-        background: rgba(27, 43, 134, 0.95);
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 4px;
+    background: rgba(27, 43, 134, 0.95); 
+    padding: 20px; 
+    margin-top: 0; /* prevent pushing content which can cause jump */
+    border-radius: 0; /* full-width overlay looks cleaner on mobile */
+    position: fixed; /* detach from navbar height changes */
+    top: var(--navbar-height); /* equal to .navbar height */
+    left: 0; 
+    right: 0; 
+    width: 100%; 
+    max-height: calc(100vh - var(--navbar-height)); 
+    overflow-y: auto; /* scroll inside panel instead of page */ 
+    -webkit-overflow-scrolling: touch; 
+    overflow-anchor: none; /* avoid scroll anchoring jumps */ 
     }
     .btn-register { margin-left: 0; }
     .page-header h1 { font-size: 28px; }
@@ -563,120 +748,32 @@ body {
     }
 }
 
-@media (max-width: 767.98px) {
-    /* 2x2 grid for schedule tabs on small screens */
-    .schedule-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    
-    /* Hero section mobile adjustments */
-    .hero-section {
-        padding: 78px 0 20px 0;
+/* Prefer small viewport units on mobile to avoid address-bar induced jumps */
+@supports (height: 100svh) {
+    @media (max-width: 991.98px) {
+        .hero-section { height: 100svh; }
+        .navbar-collapse.collapse.show { max-height: calc(100svh - var(--navbar-height)); }
     }
-    
-    .hero-section .container {
-        justify-content: flex-start;
-        padding-top: 40px;
-    }
-    
-    .hero-logo img {
-        max-width: 200px; /* Smaller logo on mobile */
-    }
-    
-    .hero-main-title img {
-        max-width: 90%; /* Responsive main title */
-    }
-    
-    .hero-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .hero-register {
-        margin-bottom: 40px;
-    }
-    
-    .organizers-footer {
-        position: static;
-        margin-top: auto;
-        bottom: auto;
-        /* 重置桌面端的水平居中与额外内边距，保持与版心左对齐 */
-        left: auto;
-        right: auto;
-        transform: none;
-        width: auto;
-        max-width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    .organizer-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .organizer-logos {
-        gap: 12px;
-    }
-    
-    .organizer-logos img {
-        height: 24px; /* Smaller logos on mobile */
-    }
-    
-    .icp-info {
-        position: static;
-        margin-top: 20px;
-        bottom: auto;
-    }
-    
-    .page-header { height: auto; min-height: 250px; padding: 80px 0 20px 0; }
-    .org-item { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
-        gap: 20px;
-    }
-    .org-item img { margin-bottom: 0; }
 }
 
-/* --- Mobile tweaks for long schedule headers --- */
 @media (max-width: 575.98px) {
-    /* Extra mobile optimizations */
-    .hero-section .container {
-        padding-top: 30px;
-    }
-    
-    .hero-logo img {
-        max-width: 180px;
-    }
-    
-    .hero-main-title img {
-        max-width: 95%;
-    }
-    
-    .organizer-logos img {
-        height: 20px;
-    }
-    
-    .hero-register {
-        margin-bottom: 30px;
-    }
-    
     .info-card .card-header {
-        height: auto;           /* allow multiple lines */
-        min-height: 50px;       /* keep minimum height consistent */
-        padding: 8px 16px;      /* tighter padding on mobile */
-        font-size: 16px;        /* slightly smaller font */
-        line-height: 1.35;      /* comfortable multi-line spacing */
-        white-space: normal;    /* enable wrapping */
-        overflow-wrap: anywhere;/* avoid overflow from long tokens */
-        text-wrap: balance;     /* nicer line breaks in supporting browsers */
-    align-items: center;    /* keep single-line vertically centered */
+        height: auto;
+        min-height: 50px;
+        padding: 8px 16px;
+        font-size: 16px;
+        line-height: 1.35;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+        align-items: center;
     }
 }
 
-/* Temporarily hide the "全部" tab (first item) */
-.schedule-tabs .nav-item:first-child { display: none !important; }
+/* Hide "全部" tab temporarily */
+.schedule-tabs .nav-item:first-child { 
+    display: none !important; 
+}
 
 /* --- Register Page Custom Styles --- */
 .registration-notes ul {
@@ -767,5 +864,4 @@ body {
     font-weight: 500;
     color: rgba(0, 0, 0, 0.85);
     background-color: #fff;
-    /* border-bottom: 1px solid #f0f0f0; */
 }
