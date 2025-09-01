@@ -212,6 +212,9 @@ body {
     width: auto;         /* allow natural width until capped by max-width */
     flex-shrink: 0;
 }
+.org-item img.sponsor-kuande {
+    max-height: 65px;
+}
 .org-item p { margin: 0; }
 
 /* --- Schedule Page --- */
