@@ -3,11 +3,7 @@
     --bs-primary-rgb: 33, 93, 255; /* For button colors */
     --navbar-height: 78px; /* Keep navbar height in one place */
     --iframe-gutter: 12px; /* Narrow side padding for edge-to-edge iframe */
-    --nav-overlay-duration: 0.02s; /* Unified duration for bar & menu */
-}
-/* Disable smooth scroll globally when needed to avoid visible jumps */
-html.no-smooth-scroll {
-    scroll-behavior: auto !important;
+    --reading-max: 1200px; /* Max readable width for content on wide/landscape */
 }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -43,17 +39,39 @@ body {
     }
 }
 
+/* Landscape: cap reading width for non-home pages (page header + main content) */
+@media (orientation: landscape) and (min-width: 1000px) {
+    .page-header .custom-container,
+    .main-content .custom-container {
+        width: min(calc(100vw - 10vw), var(--reading-max));
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Increase specificity to override .page-header .header-content { width:100% } */
+    .page-header .custom-container.header-content {
+        width: min(calc(100vw - 10vw), var(--reading-max));
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* --- Navbar --- */
 .navbar {
     height: var(--navbar-height);
     background-color: transparent;
-    transition: background-color var(--nav-overlay-duration) ease;
+    transition: background-color 0.3s ease;
     padding: 0.5rem 0;
     will-change: transform, background-color;
     transform: translateZ(0); /* promote to its own layer to avoid flicker */
+    z-index: 1061; /* keep navbar and toggler at the very top */
 }
 .navbar.scrolled { 
     background-color: #1B2B86; 
+}
+/* Ensure navbar appears solid while mobile menu is open */
+body.nav-open .navbar {
+    background-color: #1B2B86;
 }
 .navbar .logo { 
     width: 87px; 
@@ -109,7 +127,7 @@ body {
     height: 2px;
     background-color: #fff;
     border-radius: 1px;
-    transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.25s ease;
     will-change: transform, opacity;
 }
 /* Toggle to X when menu is open */
@@ -377,6 +395,16 @@ body {
     font-weight: bold; font-size: 36px; margin: 0;
 }
 .page-header p { font-size: 24px; margin-top: 4px; }
+/* Controlled two-line header on portrait: keep each part on its own line */
+@media (orientation: portrait) {
+    .page-header h1 .h1-first,
+    .page-header h1 .h1-second { display: block; }
+    .page-header h1 { white-space: normal; }
+}
+@media (orientation: landscape) {
+    .page-header h1 .h1-first,
+    .page-header h1 .h1-second { display: inline; }
+}
 .btn-download {
     position: absolute;
     right: 30px;
@@ -733,20 +761,33 @@ body {
 
 /* --- Responsive --- */
 @media (max-width: 991.98px) {
+    /* Mobile: add a small label next to the hamburger for discoverability */
+    .navbar-toggler { gap: 8px; padding: 0 6px; }
+    .navbar-toggler::before {
+        content: 'MENU';
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+        opacity: 0.95;
+        letter-spacing: 0.5px;
+    }
+    /* One-time pulse nudge for the hamburger button */
+    @keyframes togglerPulse {
+        0% { box-shadow: 0 0 0 0 rgba(33,93,255,0.65); }
+        70% { box-shadow: 0 0 0 12px rgba(33,93,255,0); }
+        100% { box-shadow: 0 0 0 0 rgba(33,93,255,0); }
+    }
+    .navbar-toggler.attn {
+        animation: togglerPulse 1.6s ease-out 2;
+        border-radius: 8px;
+    }
     body.nav-open {
         overflow: hidden; /* prevent body from scrolling when menu is open */
         position: relative;
         width: 100%;
     overscroll-behavior: contain; /* avoid scroll chaining causing jumps */
     scroll-behavior: auto; /* avoid smooth scroll conflicts while menu open */
-    overflow-anchor: none; /* disable scroll anchoring while menu is open */
     }
-    /* Ensure the top bar remains visible when the menu is open */
-    .navbar { z-index: 1050; }
-    .nav-open .navbar { 
-        background-color: #1B2B86; /* make bar visible over content */
-    }
-    .navbar-collapse { z-index: 1040; }
     /* Limit collapse height and make it scroll independently to avoid layout shifts */
     .navbar-collapse.collapse.show {
         max-height: calc(100vh - var(--navbar-height));
@@ -755,44 +796,42 @@ body {
     }
     .navbar .nav-link { margin: 10px 0; padding: 10px; text-align: center; }
     .navbar .nav-link.active::after { display: none; }
-    /* Animate open with transform; animate close with transform+opacity */
-    .navbar-collapse { transform: translateY(-8px); }
-    .nav-opening .navbar-collapse {
-        transition: transform var(--nav-overlay-duration) ease;
-        transform: translateY(0);
-        will-change: transform;
+    .navbar-collapse {
+    background: rgba(27, 43, 134, 0.95); 
+    padding: 20px; 
+    margin-top: 0; /* prevent pushing content which can cause jump */
+    border-radius: 0; /* full-width overlay looks cleaner on mobile */
+    position: fixed; /* detach from navbar height changes */
+    top: var(--navbar-height); /* equal to .navbar height */
+    left: 0; 
+    right: 0; 
+    width: 100%; 
+    max-height: calc(100vh - var(--navbar-height)); 
+    overflow-y: auto; /* scroll inside panel instead of page */ 
+    -webkit-overflow-scrolling: touch; 
+    overflow-anchor: none; /* avoid scroll anchoring jumps */ 
+    z-index: 1060; /* below navbar, above page content */
+    transition: none !important; /* disable animation */
     }
-    .nav-hiding .navbar-collapse {
-        transition: transform var(--nav-overlay-duration) ease-out, opacity var(--nav-overlay-duration) ease-out;
-        transform: translateY(-8px);
-        opacity: 0;
-        will-change: transform, opacity;
-    }
-    /* Use fixed overlay only while opening/visible for smoother close */
-    .navbar-collapse.collapse.show, 
-    .navbar-collapse.collapsing {
-        background: rgba(27, 43, 134, 0.95);
-        padding: 20px;
-        margin-top: 0; /* prevent pushing content which can cause jump */
-        border-radius: 0; /* full-width overlay looks cleaner on mobile */
-        position: fixed; /* detach from navbar height changes */
-        top: var(--navbar-height); /* equal to .navbar height */
+    /* Overlay to block interactions with underlying content when menu is open */
+    body.nav-open::before {
+        content: '';
+        position: fixed;
+        top: var(--navbar-height);
         left: 0;
         right: 0;
-        width: 100%;
-        max-height: calc(100vh - var(--navbar-height));
-        overflow-y: auto; /* scroll inside panel instead of page */
-        -webkit-overflow-scrolling: touch;
-        overflow-anchor: none; /* avoid scroll anchoring jumps */
-        will-change: transform, opacity, height; /* smoother animation */
-        transform: translateZ(0); /* promote to its own layer */
-    opacity: 1; /* ensure fully visible on open */
+        bottom: 0;
+        background: rgba(0,0,0,0.01); /* minimal opacity to ensure tap capture on iOS */
+        z-index: 1059; /* directly under the collapse panel */
+        pointer-events: auto;
     }
-    /* During collapsing, remove momentum scroll and hide overflow to avoid stutter */
-    .navbar-collapse.collapsing {
-        -webkit-overflow-scrolling: auto !important;
-        overflow: hidden !important;
-        height: auto !important; /* avoid height-based transition fighting */
+    /* Fallback: disable pointer events on underlying content nodes */
+    body.nav-open .page-header,
+    body.nav-open .main-content,
+    body.nav-open .site-footer,
+    body.nav-open .hero-section,
+    body.nav-open .iframe-container {
+        pointer-events: none;
     }
     .btn-register { margin-left: 0; }
     .page-header h1 { font-size: 28px; }
@@ -803,6 +842,12 @@ body {
         margin-top: 15px;
         text-align: center;
     }
+}
+
+/* Disable collapsing transition only for the main navbar collapse */
+#navbarNav.collapse,
+#navbarNav.collapsing {
+    transition: none !important;
 }
 
 /* Prefer small viewport units on mobile to avoid address-bar induced jumps */

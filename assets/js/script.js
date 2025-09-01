@@ -25,6 +25,37 @@ document.addEventListener("DOMContentLoaded", function() {
             link.classList.add('active');
         }
     });
+        // Add a short attention pulse to the mobile hamburger on first visit
+        const toggler = document.querySelector('.navbar-toggler');
+        const isMobile = window.matchMedia('(max-width: 991.98px)').matches;
+        try {
+            const nudged = localStorage.getItem('togglerNudged');
+            if (toggler && isMobile && nudged !== '1') {
+                toggler.classList.add('attn');
+                toggler.addEventListener('animationend', () => {
+                    toggler.classList.remove('attn');
+                    localStorage.setItem('togglerNudged', '1');
+                }, { once: true });
+            }
+        } catch (e) {
+            // noop if storage unavailable
+        }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Controlled two-line header: split at first '&' for non-home page headers
+    try {
+        document.querySelectorAll('.page-header .header-content h1').forEach(h1 => {
+            if (h1.querySelector('.h1-first')) return; // already processed
+            const raw = (h1.textContent || '').trim();
+            const m = raw.match(/^(.*?&)\s*(.+)$/);
+            if (m && m[1] && m[2]) {
+                const first = m[1].trim();
+                const second = m[2].trim();
+                h1.innerHTML = `<span class="h1-first">${first}</span> <span class=\"h1-second\">${second}</span>`;
+            }
+        });
+    } catch (e) { /* noop */ }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -33,45 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let savedScrollY = 0;
     if (navCollapse) {
         navCollapse.addEventListener('show.bs.collapse', function () {
+            // Only mark nav-open; avoid fixed-body which can hide the bar/address bar interactions
             savedScrollY = window.scrollY || window.pageYOffset || 0;
             document.body.classList.add('nav-open');
-            document.body.classList.add('nav-opening');
-            // Lock scroll without causing iOS Safari jump
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${savedScrollY}px`;
-            document.body.style.width = '100%';
-        });
-        navCollapse.addEventListener('shown.bs.collapse', function () {
-            // Remove opening state after CSS transition
-            document.body.classList.remove('nav-opening');
-        });
-        // During closing animation keep lock to mirror open
-        navCollapse.addEventListener('hide.bs.collapse', function () {
-            // Reset panel scroll to top to avoid stutter at the end
-            try { this.scrollTop = 0; } catch (e) {}
-            // Temporarily disable smooth scroll to avoid visible jump
-            document.documentElement.classList.add('no-smooth-scroll');
-        // Trigger transform/opacity out animation
-        document.body.classList.add('nav-hiding');
         });
         navCollapse.addEventListener('hidden.bs.collapse', function () {
-            // Defer unlock to next frames to avoid stutter at the end of transition
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-            document.body.classList.remove('nav-hiding');
-                    document.body.classList.remove('nav-open');
-                    const y = savedScrollY;
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    document.body.style.width = '';
-                    // Only scroll if we've actually moved
-                    if (Math.abs((window.scrollY || window.pageYOffset || 0) - y) > 1) {
-                        window.scrollTo(0, y);
-                    }
-                    // Re-enable smooth scroll after state is stable
-                    document.documentElement.classList.remove('no-smooth-scroll');
-                });
-            });
+            document.body.classList.remove('nav-open');
+            // No need to restore fixed positioning; keep scroll position naturally
         });
     }
 });
