@@ -145,11 +145,34 @@ body.nav-open .navbar {
     font-size: 16px; font-weight: 500; border-radius: 4px;
     display: flex; align-items: center; justify-content: center; text-decoration: none;
     margin-left: 20px;
+    transition: background-color .25s ease, opacity .25s ease, transform .15s ease, box-shadow .25s ease;
+    box-shadow: 0 2px 6px rgba(33, 93, 255, 0.06);
 }
 .btn-register:hover { 
     background-color: #658eff88; 
     color: #fff; 
+    opacity: .96;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(33, 93, 255, 0.14);
 }
+.btn-register:active {
+    transform: translateY(0) scale(0.985);
+    box-shadow: 0 1px 4px rgba(33, 93, 255, 0.12);
+}
+.btn-register:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(33, 93, 255, 0.28);
+}
+
+/* One-time attention pulse */
+@keyframes registerPulse {
+    0% { box-shadow: 0 0 0 0 rgba(33, 93, 255, 0.35); opacity: .92; }
+    60% { box-shadow: 0 0 0 12px rgba(33, 93, 255, 0); opacity: 1; }
+    100% { box-shadow: 0 0 0 0 rgba(33, 93, 255, 0); opacity: .98; }
+}
+.btn-register.attn,
+.btn-new-register.attn,
+.hero-vertical .btn-hero-register.attn { animation: registerPulse 1.6s ease-out 2; }
 
 /* --- Hero Section (Home) --- */
 .hero-section {
@@ -262,13 +285,19 @@ body.nav-open .navbar {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.25s ease, opacity 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 6px rgba(33, 93, 255, 0.10);
 }
 
 .btn-new-register:hover {
     background-color: rgba(33, 93, 255, 0.8);
     color: #fff;
+    opacity: .98;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(33, 93, 255, 0.18);
 }
+.btn-new-register:active { transform: translateY(0) scale(0.985); box-shadow: 0 1px 4px rgba(33,93,255,0.14); }
+.btn-new-register:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(33, 93, 255, 0.28); }
 
 /* Organizers Footer (horizontal layout only) */
 .hero-horizontal .organizers-footer {
@@ -317,6 +346,12 @@ body.nav-open .navbar {
     object-fit: contain;
 }
 
+/* Slightly reduce two logos that look visually larger for better balance */
+.organizer-logos img[alt="中国人民大学健康大数据研究院"],
+.organizer-logos img[alt="中国商业统计学会人工智能分会"] {
+    height: 26px; /* micro-shrink from 30px to 26px */
+}
+
 .icp-info {
     color: rgba(255,255,255,0.3);
     font-size: clamp(11px, 0.85vw, 13px);
@@ -363,12 +398,19 @@ body.nav-open .navbar {
     align-items: center; 
     justify-content: center; 
     text-decoration: none;
+    transition: background-color 0.25s ease, opacity 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .hero-vertical .btn-hero-register:hover {
     background-color: rgba(255, 255, 255, 0.75);
     color: #386EFF;
+    opacity: .98;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
 }
+.hero-vertical .btn-hero-register:active { transform: translateY(0) scale(0.985); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.hero-vertical .btn-hero-register:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(56, 110, 255, 0.28); }
 
 .hero-vertical .hero-footer { 
     margin-top: auto; 

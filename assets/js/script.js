@@ -25,6 +25,30 @@ document.addEventListener("DOMContentLoaded", function() {
             link.classList.add('active');
         }
     });
+    // One-time attention pulse for desktop register button (navbar right)
+    try {
+        const desktop = window.matchMedia('(min-width: 992px)').matches;
+        if (desktop) {
+            const regBtn = document.querySelector('.btn.btn-register.d-none.d-lg-flex');
+            const heroBtn = document.querySelector('.btn-new-register') || document.querySelector('.hero-vertical .btn-hero-register');
+            const nudgedReg = localStorage.getItem('registerBtnNudged');
+            if (nudgedReg !== '1') {
+                if (regBtn) {
+                    regBtn.classList.add('attn');
+                    regBtn.addEventListener('animationend', () => {
+                        regBtn.classList.remove('attn');
+                        localStorage.setItem('registerBtnNudged', '1');
+                    }, { once: true });
+                } else if (heroBtn) {
+                    heroBtn.classList.add('attn');
+                    heroBtn.addEventListener('animationend', () => {
+                        heroBtn.classList.remove('attn');
+                        localStorage.setItem('registerBtnNudged', '1');
+                    }, { once: true });
+                }
+            }
+        }
+    } catch (e) { /* noop */ }
         // Add a short attention pulse to the mobile hamburger on first visit
         const toggler = document.querySelector('.navbar-toggler');
         const isMobile = window.matchMedia('(max-width: 991.98px)').matches;
