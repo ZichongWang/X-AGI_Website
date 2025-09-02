@@ -164,6 +164,21 @@ body.nav-open .navbar {
     box-shadow: 0 0 0 3px rgba(33, 93, 255, 0.28);
 }
 
+/* Keep CTA text white across interaction states */
+.btn-register,
+.btn-register:hover,
+.btn-register:active,
+.btn-register:focus,
+.btn-register:visited,
+.btn-new-register,
+.btn-new-register:hover,
+.btn-new-register:active,
+.btn-new-register:focus,
+.btn-new-register:visited {
+    color: #fff !important;
+    text-decoration: none;
+}
+
 /* One-time attention pulse */
 @keyframes registerPulse {
     0% { box-shadow: 0 0 0 0 rgba(33, 93, 255, 0.35); opacity: .92; }
