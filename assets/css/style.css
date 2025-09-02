@@ -562,6 +562,57 @@ body.nav-open .navbar {
 .speaker-avatar { width: 120px; height: 120px; object-fit: cover; }
 .info-card ul { padding-left: 20px; }
 
+/* --- Courses Page Overrides (scoped via body.page-courses) --- */
+.page-courses .info-card .card-body {
+    /* Secondary content text color: #000 at 85% */
+    color: rgba(0, 0, 0, 0.85);
+}
+.page-courses .info-card .card-body p {
+    margin-bottom: 10px;
+}
+/* Remove default list paddings/margins; custom numbering/bullets */
+.page-courses .info-card .card-body ol,
+.page-courses .info-card .card-body ul {
+    list-style: none;
+    margin: 0 0 12px 0;
+    padding-left: 0; /* avoid uncontrollable left padding */
+}
+/* Ordered list with CSS counter */
+.page-courses .info-card .card-body ol {
+    counter-reset: ord;
+}
+.page-courses .info-card .card-body ol > li {
+    counter-increment: ord;
+    position: relative;
+    padding-left: 1.2em; /* space for number marker */
+    margin-bottom: 8px;
+}
+.page-courses .info-card .card-body ol > li::before {
+    content: counter(ord) ".";
+    position: absolute;
+    left: 0;
+    color: #000000c3;
+    font-weight: 500;
+}
+/* Unordered list bullets */
+.page-courses .info-card .card-body ul > li {
+    position: relative;
+    padding-left: 1.2em;
+    margin-bottom: 6px;
+}
+.page-courses .info-card .card-body ul > li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000000c3;
+    font-weight: 600;
+}
+/* Nested lists tighter spacing */
+.page-courses .info-card .card-body li > ul,
+.page-courses .info-card .card-body li > ol {
+    margin-top: 6px;
+}
+
 /* --- Guide Page --- */
 .accordion-button:not(.collapsed) { color: #fff; background-color: #202661; }
 .accordion-button:focus { box-shadow: none; }
