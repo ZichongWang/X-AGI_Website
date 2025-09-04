@@ -90,7 +90,7 @@
                                         <div class="col-md-3 text-center"><img src="assets/speaker_photo/JunLiu.jpg" alt="刘军教授" style="object-position:center 25%" class="speaker-photo"></div>
                                         <div class="col-md-9">
                                             <div class="speaker-info">
-                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">本报告将探讨……</div>
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">TBD</div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">刘军教授，美国科学院院士，一直从事于贝叶斯统计理论、蒙特卡洛方法、统计机器学习、状态空间模型和时间序列、生物信息学、计算生物学等方向的研究，并做出杰出贡献，对大数据处理和机器学习领域有深远影响。他于2002年获得考普斯会长奖（COPSS Presidents' Award，公认为国际统计学界的最高荣誉）； 2010年获得世界华人应用数学最高荣誉晨兴应用数学金奖（三年一度，不超过45岁）；2014年被ISI评为论文高频引用的数学家；2016年获得泛华统计协会许宝騄奖（三年一度，不超过51岁）；2004、2005年分别成为美国数理统计学会和美国统计学会会士（Fellow）；2022年当选国际计算生物学会会士。刘军教授还曾任美国统计协会会刊（JASA）联席主编及多个国际一流统计杂志副编等职。截至2025年5月，他在各类国际顶尖学术杂志（如Science，Nature，Cell，JASA，JMLR等）及书刊上发表论文300余篇和一本专著，被引用9万余次（Google scholar）。他已经指导了40多位博士生、30多位博士后。</div>
                                             </div>
                                         </div>
@@ -516,7 +516,7 @@
                                         <div class="col-md-3 text-center"><img src="assets/speaker_photo/ZiyeMa.png" alt="ZiyeMa" style="object-position: center 0%;" class="speaker-photo"></div>
                                         <div class="col-md-9">
                                             <div class="speaker-info">
-                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Optimizing large-scale nonconvex problems, common in machine learning, demands balancing rapid convergence with computational efficiency. First-order (FO) stochastic methods like SVRG provide fast convergence and good generalization but incur high costs due to full-batch gradients in large models. Conversely, zeroth-order (ZO) algorithms reduce this burden using estimated gradients, yet their slow convergence in high-dimensional settings limits practicality. We introduce VAMO (VAriance-reduced Mixed-gradient Optimizer), a stochastic variance-reduced method combining FO mini-batch gradients with lightweight ZO finite-difference probes under an SVRG-style framework. VAMO's hybrid design uses a two-point ZO estimator to achieve a dimension-agnostic convergence rate of $\mathcal{O}(1/T + 1/b)$, where $T$ is the number of iterations and $b$ is the batch-size, surpassing the dimension-dependent slowdown of purely ZO methods and significantly improving over SGD's $\mathcal{O}(1/\sqrt{T})$ rate. Additionally, we propose a multi-point ZO variant that mitigates the $O(1/b)$ error by adjusting number of estimation points to balance convergence and cost, making it ideal for a whole range of computationally constrained scenarios. Experiments including traditional neural network training and LLM finetuning show VAMO outperforms established FO and ZO methods, offering a faster, more flexible option for improved efficiency.
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Optimizing large-scale nonconvex problems, common in machine learning, demands balancing rapid convergence with computational efficiency. First-order (FO) stochastic methods like SVRG provide fast convergence and good generalization but incur high costs due to full-batch gradients in large models. Conversely, zeroth-order (ZO) algorithms reduce this burden using estimated gradients, yet their slow convergence in high-dimensional settings limits practicality. We introduce VAMO (VAriance-reduced Mixed-gradient Optimizer), a stochastic variance-reduced method combining FO mini-batch gradients with lightweight ZO finite-difference probes under an SVRG-style framework. VAMO's hybrid design uses a two-point ZO estimator to achieve a dimension-agnostic convergence rate of O(1/T + 1/b), where T is the number of iterations and b is the batch-size, surpassing the dimension-dependent slowdown of purely ZO methods and significantly improving over SGD's O(1/√T) rate. Additionally, we propose a multi-point ZO variant that mitigates the O(1/b) error by adjusting number of estimation points to balance convergence and cost, making it ideal for a whole range of computationally constrained scenarios. Experiments including traditional neural network training and LLM finetuning show VAMO outperforms established FO and ZO methods, offering a faster, more flexible option for improved efficiency.
                                                 </div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">The speaker Ziye Ma is currently a presidential assistant professor in the computer science department at the City University of Hong Kong. Prior to this, he completed his PhD in the EECS department at UC Berkeley under the guidance of Somayeh Sojoudi and Javad Lavaei. His research is mostly focused on machine learning theory and AI foundation, with a particular emphasis on non-convex optimization. His works have received several oral designations in top ML conferences, and he has received the early career scheme from research grant council (RGC) of Hong Kong.
                                                 </div>
@@ -767,12 +767,35 @@
 
             <!-- Schedule Card: 19 PM - 生物医药统计 - 2 - session A -->
             <div class="info-card schedule-card" id="session-19-pm">
-                <div class="card-header">10月19日下午 | AI赋能制药统计 (六号楼2会场)</div>
+                <div class="card-header">10月19日下午 | AI-Enhanced Statistics on Health (六号楼2会场)</div>
                 <div class="session-chair">主席 | 李扬 林存洁</div>
                 <div class="card-body">
                     <div class="session-list">
                         <div class="session-item">
-                            <div class="session-title"><span class="session-time">15:30-15:55</span><span>临床试验方案的AI辅助撰写、数字化与自动化</span></div>
+                            <div class="session-title"><span class="session-time">15:30-15:55</span><span>AI医药数智化应用生态与价值创造</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker32" aria-expanded="false" aria-controls="speaker32">
+                                <span>邱婧君 | 复星医药全球研发中心副总裁，AI医药科委会执行主任</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker32">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JingjunQiu.png" alt="JingjunQiu" style="object-position: center 10%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">随着AI/ML等前沿技术的快速演进，医药研发正迎来数智化转型的重要机遇。复星医药围绕AI在信息洞察、决策支持、药物发现、临床开发、上市营销等全生命周期中的应用，系统构建了以PharmAID决策智能体为代表的数智化平台，推动从数据资产管理到智能决策的深度融合。通过分享平台架构、场景落地及价值评估等方面的实践经验，助力行业共同探索AI赋能医药研发的创新路径与协同生态。
+                                                </div>
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">邱婧君，曾就职于美国耶鲁大学医学院、默沙东、拜耳和百济神州。十几年不同地区、不同治疗领域临床试验研究的丰富经验；参与从药物临床研发战略规划到临床试验及上市后研究的各重要阶段，包括早研转化与BD尽调项目；同时负责集团AI+医药项目的战略规划与推进。现任中国统计理论与方法、中国医药统计与教育、中国药促会、CSCO、北京统计协会等专委会委员，并支持不同课题工作小组，如CDE若干指导原则、IFPMA ICH-E20Adaptive design、E17-MRCT、E9(R1)-Estimand蓝皮书工作组等。作为DIA/CMAC/AIIA(国际人工智能产业联盟)等统计与数据科学工作组核心成员，长期热心推动医药社区各种活动，如组织年会及定量科学论坛、统计学术研讨会、OnSite肿瘤研究者培训课程、能力建设学院统计方法学培训、数据建模大赛和年会壁报评选、教材和书籍编写等。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">15:55-16:20</span><span>临床试验方案的AI辅助撰写、数字化与自动化</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker28" aria-expanded="false" aria-controls="speaker28">
                                 <span>Alex Goh | 百济神州产品管理副总监</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
@@ -794,7 +817,7 @@
                         </div>
 
                         <div class="session-item">
-                            <div class="session-title"><span class="session-time">15:55-16:20</span><span>MAGIC：多智能体疑难肝病智能诊疗新方法</span></div>
+                            <div class="session-title"><span class="session-time">16:20-16:45</span><span>MAGIC：多智能体疑难肝病智能诊疗新方法</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker30" aria-expanded="false" aria-controls="speaker30">
                                 <span>林毓聪 | 北京理工大学光电学院特别副研究员</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
@@ -818,7 +841,7 @@
                         </div>
 
                         <div class="session-item">
-                            <div class="session-title"><span class="session-time">16:20-16:45</span><span>基于大语言模型的多样化私有数据临床试验仿真</span></div>
+                            <div class="session-title"><span class="session-time">16:45-17:10</span><span>基于大语言模型的多样化私有数据临床试验仿真</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker31" aria-expanded="false" aria-controls="speaker31">
                                 <span>梅好 | 中国人民大学统计学院副教授</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
@@ -831,28 +854,6 @@
                                                 <h5>演讲内容摘要</h5><div class="speaker-abstract">Clinical trial emulation has emerged as an important approach in real-world drug research, enabling investigators to replicate the design and analysis of randomized controlled trials using observational data. However, traditional emulation typically relies on expert knowledge and extensive literature review to construct a hypothetical trial, a process that is often time-consuming and constrained by limited scalability. In this work, we develop a domain-specific large language model (LLM) trained with advanced direct preference optimization techniques to facilitate semi-automated trial emulation. Given the drugs or interventions of interest, the LLM generates a complete hypothetical trial design, including detailed inclusion and exclusion criteria, treatment allocation strategies, follow-up protocols, and outcome definitions. Building on this, the system leverages LLM to align the hypothetical trial with the user’s diverse private datasets, producing tailored data extraction schemes that enable efficient retrieval of relevant patient cohorts and variables. This LLM-assisted framework significantly improves the efficiency and reduces the cost of conducting emulation studies for researchers with heterogeneous, privately held data sources, expanding the accessibility and scalability of real-world evidence generation.
                                                 </div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">梅好，中国人民大学统计学院副教授、杰出青年学者，博士毕业于美国耶鲁大学生物统计专业，曾就职于耶鲁纽黑文医院临床实效研究中心、腾讯医疗健康事业部，具有丰富的临床实效研究及医疗健康大数据分析经验。主要研究方向为临床实效分析、自适应临床试验设计、人工智能赋能的生物统计研究、网络数据分析、电子健康记录数据分析、复杂生物医学数据建模等，在《Biometrics》、《Briefings in Bioinformatics》、《Statistics in Medicine》、《Journal of Clinical Epidemiology》等国际重要学术期刊上发表论文十余篇。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="session-item">
-                            <div class="session-title"><span class="session-time">16:45-17:10</span><span>AI医药数智化应用生态与价值创造</span></div>
-                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker32" aria-expanded="false" aria-controls="speaker32">
-                                <span>邱婧君 | 复星医药全球研发中心副总裁，AI医药科委会执行主任</span><i class="fas fa-chevron-down expand-icon"></i>
-                            </div>
-                            <div class="collapse" id="speaker32">
-                                <div class="speaker-details">
-                                    <div class="row">
-                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JingjunQiu.png" alt="JingjunQiu" style="object-position: center 10%;" class="speaker-photo"></div>
-                                        <div class="col-md-9">
-                                            <div class="speaker-info">
-                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">随着AI/ML等前沿技术的快速演进，医药研发正迎来数智化转型的重要机遇。复星医药围绕AI在信息洞察、决策支持、药物发现、临床开发、上市营销等全生命周期中的应用，系统构建了以PharmAID决策智能体为代表的数智化平台，推动从数据资产管理到智能决策的深度融合。通过分享平台架构、场景落地及价值评估等方面的实践经验，助力行业共同探索AI赋能医药研发的创新路径与协同生态。
-                                                </div>
-                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">邱婧君，曾就职于美国耶鲁大学医学院、默沙东、拜耳和百济神州。十几年不同地区、不同治疗领域临床试验研究的丰富经验；参与从药物临床研发战略规划到临床试验及上市后研究的各重要阶段，包括早研转化与BD尽调项目；同时负责集团AI+医药项目的战略规划与推进。现任中国统计理论与方法、中国医药统计与教育、中国药促会、CSCO、北京统计协会等专委会委员，并支持不同课题工作小组，如CDE若干指导原则、IFPMA ICH-E20Adaptive design、E17-MRCT、E9(R1)-Estimand蓝皮书工作组等。作为DIA/CMAC/AIIA(国际人工智能产业联盟)等统计与数据科学工作组核心成员，长期热心推动医药社区各种活动，如组织年会及定量科学论坛、统计学术研讨会、OnSite肿瘤研究者培训课程、能力建设学院统计方法学培训、数据建模大赛和年会壁报评选、教材和书籍编写等。
                                                 </div>
                                             </div>
                                         </div>

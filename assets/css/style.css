@@ -1039,15 +1039,27 @@ body.nav-open .navbar {
 }
 
 .iframe-container {
-    margin-top: 30px;
-    /* Full-bleed inside centered container, with narrow gutters */
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: max(var(--iframe-gutter), env(safe-area-inset-left));
-    padding-right: max(var(--iframe-gutter), env(safe-area-inset-right));
-    overflow: hidden; /* prevent child overflow on narrow screens */
+        margin-top: 30px;
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding-left: max(var(--iframe-gutter), env(safe-area-inset-left));
+        padding-right: max(var(--iframe-gutter), env(safe-area-inset-right));
+        overflow: hidden;
+}
+
+@media (min-width: 1000px) {
+    .iframe-container {
+        max-width: 900px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 16px rgba(33,93,255,0.08);
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .iframe-container iframe {
