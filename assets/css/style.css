@@ -978,6 +978,13 @@ body.nav-open .navbar {
         text-wrap: balance;
         align-items: center;
     }
+    /* Do not break inside English words for schedule headers; allow normal CJK wrapping */
+    .schedule-card .card-header {
+        overflow-wrap: break-word; /* only break if needed at word boundary */
+        word-break: normal;        /* keep words intact */
+        hyphens: manual;           /* don't auto-hyphenate */
+        text-wrap: wrap;           /* disable balancing to avoid early wraps */
+    }
 }
 
 /* Hide "全部" tab temporarily */
