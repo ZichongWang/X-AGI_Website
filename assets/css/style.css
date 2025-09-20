@@ -581,6 +581,45 @@ body.nav-open .navbar {
 .session-time { margin-right: 20px; font-weight: 500; }
 .session-title { font-size: 18px; color: #0034C2; font-weight: 500; }
 .session-speaker { font-size: 14px; color: rgba(0,0,0,0.85); margin-top: 8px; }
+.chair-info {
+    /* Slightly smaller, softer text for chair intro */
+    position: relative;
+    padding: 20px 30px 20px 40px; /* balanced top/bottom padding; extra left padding for the vertical line */
+    color: rgba(0, 0, 0, 0.72);
+    font-size: 14px;
+    line-height: 1.65;
+}
+.chair-info::before {
+    /* Decorative vertical line that grows with content height */
+    content: "";
+    position: absolute;
+    left: 24px; /* sits inside the 40px left padding */
+    top: 23px;   /* match top padding so line centers with text block */
+    bottom: 18px;/* match bottom padding so line centers with text block */
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(27, 43, 134, 0.35), rgba(27, 43, 134, 0.15)); /* themed blue with subtle fade */
+    border-radius: 2px;
+}
+.chair-info p {
+    margin-bottom: 10px;
+}
+.chair-info p:last-child {
+    /* Remove trailing extra gap under the last paragraph */
+    margin-bottom: 0;
+}
+
+/* Responsive adjustment for very small screens */
+@media (max-width: 576px) {
+    .chair-info {
+        font-size: 13px;
+        padding: 16px 20px 16px 32px; /* balanced padding on small screens */
+    }
+    .chair-info::before {
+        left: 18px;
+        top: 16px;
+        bottom: 16px;
+    }
+}
 
 /* --- Courses Page --- */
 .speaker-avatar { width: 120px; height: 120px; object-fit: cover; }
