@@ -174,7 +174,12 @@ body.nav-open .navbar {
 .btn-new-register:hover,
 .btn-new-register:active,
 .btn-new-register:focus,
-.btn-new-register:visited {
+.btn-new-register:visited,
+.btn-hero-download,
+.btn-hero-download:hover,
+.btn-hero-download:active,
+.btn-hero-download:focus,
+.btn-hero-download:visited {
     color: #fff !important;
     text-decoration: none;
 }
@@ -283,9 +288,13 @@ body.nav-open .navbar {
     white-space: nowrap;
 }
 
-/* Register Button */
-.hero-register {
+/* Primary CTAs */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     margin-bottom: 60px;
+    flex-wrap: wrap;
 }
 
 .btn-new-register {
@@ -313,6 +322,41 @@ body.nav-open .navbar {
 }
 .btn-new-register:active { transform: translateY(0) scale(0.985); box-shadow: 0 1px 4px rgba(33,93,255,0.14); }
 .btn-new-register:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(33, 93, 255, 0.28); }
+
+.btn-hero-download {
+    width: 138px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    transition: background-color 0.25s ease, opacity 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.btn-hero-download:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    opacity: .98;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+.btn-hero-download:active {
+    transform: translateY(0) scale(0.985);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+.btn-hero-download:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.28);
+}
 
 /* Organizers Footer (horizontal layout only) */
 .hero-horizontal .organizers-footer {
@@ -391,6 +435,31 @@ body.nav-open .navbar {
     transform: translateY(0px);
 }
 
+.hero-vertical .hero-actions {
+    margin-bottom: 0;
+}
+
+.hero-actions-vertical {
+    flex-direction: column;
+    gap: 18px;
+    margin-top: clamp(24px, 5vh, 48px);
+}
+
+.hero-actions-vertical .btn-hero-download {
+    width: 160px;
+    height: 50px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    font-size: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+.hero-actions-vertical .btn-hero-download:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
 .hero-vertical .hero-title-img {
     width: clamp(560px, 60vw, 780px);
     height: auto;
@@ -402,6 +471,12 @@ body.nav-open .navbar {
     color: #fff;
     font-size: clamp(18px, 1.6vw, 24px);
     margin-top: clamp(28px, 4vh, 56px);
+}
+
+.hero-vertical .hero-date .hero-date-place {
+    display: block;
+    margin-top: 6px;
+    font-size: clamp(16px, 1.4vw, 22px);
 }
 
 .hero-vertical .btn-hero-register {
