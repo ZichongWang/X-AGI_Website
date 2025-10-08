@@ -130,27 +130,6 @@
                             </div>
                         </div>
                         <!-- <div class="session-item">
-                            <div class="session-title"><span class="session-time">10:15 - 11:15</span><span>AReaL：智能体时代的强化学习系统</span></div>
-                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker10" aria-expanded="true" aria-controls="speaker10">
-                                <span>吴翼 | 清华大学交叉信息院助理教授</span><i class="fas fa-chevron-down expand-icon"></i>
-                            </div>
-                            <div class="collapse show" id="speaker10">
-                                <div class="speaker-details">
-                                    <div class="row">
-                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/YiWu.jpg" alt="YiWu" style="object-position: center 10%;" class="speaker-photo"></div>
-                                        <div class="col-md-9">
-                                            <div class="speaker-info">
-                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">强化学习与大模型的发展演进，以及需要面对的算法挑战。AReaL通过Agent优先的接口设计，以及全异步强化学习算法，让用户改动极少的代码就可以实现3-5x的智能体强化学习训练加速。
-                                                </div>
-                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">吴翼博士，清华大学交叉信息院助理教授，博士生导师，前 OpenAI 研究员，WAIC2025云帆奖得主。博士毕业于加州大学伯克利分校，研究方向为强化学习。Google Scholar 引用超过 14000 次，曾获 NIPS 2016 best paper award，ICRA 2024 best demo award finalist。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="session-item">
                             <div class="session-title"><span class="session-time">10:15 - 11:15</span><span>激动人心的三年：开源 AI 的崛起与中国力量</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker2" aria-expanded="true" aria-controls="speaker2">
                                 <span>王铁震 | Hugging Face</span><i class="fas fa-chevron-down expand-icon"></i>
@@ -230,7 +209,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="session-item">
+
+                        <!-- <div class="session-item">
                             <div class="session-title"><span class="session-time">14:00 - 14:30</span><span> On the Mechanism Interpretability of LLM for Fine-tuning and Reasoning
                             </span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker4" aria-expanded="false" aria-controls="speaker4">
@@ -245,6 +225,29 @@
                                                 <h5>演讲内容摘要</h5><div class="speaker-abstract">While Reinforcement Learning (RL) and Fine-Tuning demonstrably enhance Large Language Model (LLM) capabilities, particularly in reasoning and task adaptation, the underlying mechanisms remain poorly understood. This talk integrates insights from two complementary studies to advance mechanistic interpretability. First, we dissect Reinforcement Learning with Verifiable Rewards (RLVR), revealing its core benefit lies in optimizing the selection of existing high-success-rate reasoning patterns, with theoretical convergence analyses showing distinct dynamics for strong versus weak initial models (mitigated by prior supervised fine-tuning). Second, we employ circuit analysis to interpret fine-tuning mechanisms, uncovering that circuits undergo significant edge changes rather than merely adding components, contrasting prior findings. Leveraging this, we develop a circuit-aware LoRA method, improving performance over standard LoRA by 2.46%. Furthermore, we explore combining circuits for compositional tasks. Together, these studies provide novel theoretical and empirical insights: RL enhances reasoning primarily through pattern selection, while fine-tuning fundamentally rewires circuit connections. This deeper understanding informs the design of more effective and interpretable adaptation strategies for LLMs.
                                                 </div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">Dr.Difan Zou is an assistant professor in computer science department and institute of data science at HKU. He has received his PhD degree in Department of Computer Science, University of California, Los Angeles (UCLA).  His research interests are broadly in machine learning, deep learning theory, graph learning, mechanism interpretation, and interdisciplinary research between AI and other subjects. His research is published in top-tier machine learning conferences (ICML, NeurIPS, COLT, ICLR) and journal papers (IEEE Trans., JMLR, Nature Comm., PNAS, etc.). He serves as an area chair/senior PC member for NeurIPS, ICML and AAAI, and PC members for ICLR, COLT, etc.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">14:00 - 14:30</span><span> 迈向通用多模态智能
+                            </span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker4" aria-expanded="false" aria-controls="speaker4">
+                                <span>王本友 | 香港中文大学（深圳）数据科学学院助理教授</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker4">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/BenyouWang.jpg" alt="Benyou Wang" style="object-position: center 20%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">本报告系统性地呈现了我们在通用多模态大模型构建中的全链路探索。在感知基础层面，我们构建了高质量的通用图文对齐数据集ALLaVA-4V、长尾视觉知识数据集以及专业医学图像数据集（HuatuoGPT-Vision），并开发了支持长上下文的多模态模型（如LongLLaVA），能够有效处理多图与长视频（基于MileBench评测）。同时，我们积极拓展全模态感知维度，融合语音（EchoX与SoundWave）、动作理解（MotionLLM）、中医诊疗知识（时珍GPT）以及脑电信号（WaveMind），构建了更为立体的信息理解体系。在认知与推理层面，我们重点攻坚复杂推理能力，在视频理解（Video-R1）、医疗多模态推理与语音推理等任务上取得显著进展。在交互与生成前沿，我们开发了基于大模型的图像生成与编辑框架Janus-4o、医疗视频生成系统MedGen、微观世界模拟器MicroVerse，并探索VR/AR交互应用，全面提升自然交互体验。最终，我们前瞻布局物理世界孪生与智能体自进化，通过环境交互模拟，推动Agent在持续反馈中实现自主演进，为迈向具备环境适应与进化能力的通用智能奠定坚实基础。
+                                                </div>
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">王本友，香港中文大学（深圳）数据科学学院助理教授、博士生导师、校长青年教授；深圳河套学院双聘导师。研究方向为大语言模型（医疗）应用、多模态大模型、AI4Math和Human-agent interaction，曾获得了SIGIR 2017 Best Paper Award Honorable Mention, NAACL 2019 Best Explainable NLP Paper，NLPCC 2022 Best Paper, Best Paper in ICLR 2025 Financial AI workshop，担任了 NLPCC 2023 的宣传主席和 EMNLP 2023 的网站主席。他曾获得了华为火花奖、腾讯犀牛鸟项目、华为AI百校计划和CCF滴滴盖亚学者项目的资助，开发的华佗GPT系列大模型被部署到了深圳数十家公立医院和数百家社康医院，和华为诺亚的联合团队获得第二届AI奥林匹克数学竞赛AIMO 2的金牌，相关工作受到了Nature、CCTV、金融时报（Financial Times）、环球时报、红星新闻、南方都市报、深圳卫视、深圳市卫健委、深圳市龙岗区政府的关注和报道。
                                                 </div>
                                             </div>
                                         </div>
@@ -329,6 +332,28 @@
                                                 <h5>演讲内容摘要</h5><div class="speaker-abstract">现有的轨迹级强化学习方法在训练智能体时忽略了工具调用后产生的高熵token分布，无法充分探索步骤级工具使用行为。ARPO通过熵驱动的自适应采样机制，在高熵工具使用步骤中动态分支采样，结合优势归因估计更好地学习工具交互行为。实验显示ARPO在13个基准测试中超越传统方法，且仅需一半工具调用预算。
                                                 </div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">董冠霆，目前就读于中国人民大学高瓴人工智能学院，博士一年级，导师为窦志成教授和文继荣教授。他的研究方向主要包括大语言模型推理，深度搜索智能体，智能体强化学习等。以第一作者身份在 ICLR、ACL、AAAI 等顶级会议发表论文10余篇，并在快手大模型应用组、阿里通义千问组等大模型团队进行实习。代表性工作包括 AUTOIF、ARPO、RFT、Search-o1、WebThinker、Qwen2 和 Qwen2.5 等。个人主页：https://dongguanting.github.io/
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">14:00 - 14:30</span><span>AReaL：智能体时代的强化学习系统</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker10" aria-expanded="false" aria-controls="speaker10">
+                                <span>高嘉煊 | 清华大学交叉信息研究院博士生</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker10">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JiaxuanGao.png" alt="JiaxuanGao" style="object-position: center 10%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">强化学习与大模型的发展演进，以及需要面对的算法挑战。AReaL通过Agent优先的接口设计，以及全异步强化学习算法，让用户改动极少的代码就可以实现3-5x的智能体强化学习训练加速。
+                                                </div>
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">高嘉煊，清华大学交叉信息研究院博士生，AReaL团队核心成员，主要研究方向为大语言模型强化学习及智能体强化学习。他在ICLR, NeurIPS, ICML, AAMAS等会议发表多篇论文。代表性开源工作包括AReaL以及ASearcher 。
                                                 </div>
                                             </div>
                                         </div>
