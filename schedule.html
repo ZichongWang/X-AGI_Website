@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="assets/images/x-agi.png?v=20250901">
     <link rel="mask-icon" href="assets/images/index/logo.svg" color="#1B2B86">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20251009">
 </head>
 <body>
     <!-- Navbar -->
@@ -48,7 +48,10 @@
                 <h1>2025 X-AGI & The 18th China-R Conference</h1>
                 <p>日程安排</p>
             </div>
-            <a href="assets/files/invitation.pdf" class="btn btn-download" download>下载大会邀请函</a>
+            <div class="header-downloads">
+                <a href="assets/files/invitation.pdf" class="btn btn-download" download>下载大会邀请函</a>
+                <a href="assets/files/handbook.pdf" class="btn btn-download" download>下载大会手册</a>
+            </div>
         </div>
     </header>
 
@@ -443,7 +446,30 @@
                 </div>
                 <div class="card-body">
                     <div class="session-list">
+
                         <div class="session-item">
+                            <div class="session-title"><span class="session-time">15:30-16:00</span><span>What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker15" aria-expanded="false" aria-controls="speaker15">
+                                <span>滕佳烨 | 上海财经大学统计与数据科学学院助理教授</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker15">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JiayeTeng.JPG" alt="JiayeTeng" style="object-position: center 10%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract"> While looped transformers (termed as Looped-Attn) often outperform standard transformers (termed as Single-Attn) on complex reasoning tasks, the theoretical basis for this advantage remains underexplored. In this paper, we explain this phenomenon through the lens of loss landscape geometry, inspired by empirical observations of their distinct dynamics at both sample and Hessian levels. To formalize this, we extend the River-Valley landscape model by distinguishing between U-shaped valleys (flat) and V-shaped valleys (steep). Based on empirical observations, we conjecture that the recursive architecture of Looped-Attn induces a landscape-level inductive bias towards River-V-Valley. Theoretical derivations based on this inductive bias guarantee a better loss convergence along the river due to valley hopping, and further encourage learning about complex patterns compared to the River-U-Valley induced by Single-Attn. Building on this insight, we propose SHIFT (Staged HIerarchical Framework for Progressive Training), a staged training framework that accelerates the training process of Looped-Attn while achieving comparable performances.
+                                                </div>
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">滕佳烨，上海财经大学统计与数据科学学院助理教授，主要研究方向为理论机器学习，包括泛化理论、共形预测等。博士毕业于清华大学交叉信息研究院，并曾赴普林斯顿大学访问。曾获清华大学优秀毕业生、清华大学优秀博士论文等荣誉；获得上海市 2024 “科技创新行动计划”启明星培育（扬帆专项）资助，以及 2025 CCF 理论计算机科学博士学位论文激励计划（提名），并为人工智能研讨班 FAI-Seminar 的筹办人。主页：www.tengjiaye.com。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="session-item">
                             <div class="session-title"><span class="session-time">15:30-16:00</span><span>大模型推理机制分析</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker15" aria-expanded="false" aria-controls="speaker15">
                                 <span>刘勇 | 高瓴人工智能学院长聘副教授</span><i class="fas fa-chevron-down expand-icon"></i>
@@ -463,7 +489,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="session-item">
                             <div class="session-title"><span class="session-time">16:00-16:30</span><span>随机梯度下降算法在高维回归问题中正则效应与泛化性能分析</span></div>
