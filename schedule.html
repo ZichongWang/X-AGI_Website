@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="assets/images/x-agi.png?v=20250901">
     <link rel="mask-icon" href="assets/images/index/logo.svg" color="#1B2B86">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=20251009">
+    <link rel="stylesheet" href="assets/css/style.css?v=20251012">
 </head>
 <body>
     <!-- Navbar -->
@@ -34,9 +34,9 @@
                     <li class="nav-item"><a class="nav-link active" href="schedule.html">日程安排</a></li>
                     <li class="nav-item"><a class="nav-link" href="courses.html">短期课程</a></li>
                     <li class="nav-item"><a class="nav-link" href="guide.html">参会指南</a></li>
-                    <li class="nav-item d-lg-none mt-3"><a href="register.html" class="btn btn-register w-100">报名参会</a></li>
+                    <li class="nav-item d-lg-none mt-3"><a href="register.html" class="btn btn-register w-100 is-closed">报名已结束</a></li>
                 </ul>
-                <a href="register.html" class="btn btn-register d-none d-lg-flex">报名参会</a>
+                <a href="register.html" class="btn btn-register d-none d-lg-flex is-closed">报名已结束</a>
             </div>
         </div>
     </nav>
@@ -71,7 +71,7 @@
 
             <!-- Schedule Card: 17 | 短期课程 (collapsed by default) -->
             <div class="info-card schedule-card" id="session-17">
-                <div class="card-header">10月17日 | 短期课程</div>
+                <div class="card-header">10月17日 | 短期课程 (会议楼三层19会议室)</div>
                 <div class="session-chair">讲师 | 邱怡轩 张源源（详情见 <a href="courses.html" target="_blank" style="text-decoration: none;">短期课程</a>）</div>
                 <br>
             </div>
@@ -1031,17 +1031,17 @@
                         <div class="session-item">
                             <div class="session-title"><span class="session-time">15:30-15:55</span><span>AI医药数智化应用生态与价值创造</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker32" aria-expanded="false" aria-controls="speaker32">
-                                <span>邱婧君 | 复星医药全球研发中心副总裁，AI医药科委会执行主任</span><i class="fas fa-chevron-down expand-icon"></i>
+                                <span>李贲 | 复星医药全球研发中心生物统计负责人</span><i class="fas fa-chevron-down expand-icon"></i>
                             </div>
                             <div class="collapse" id="speaker32">
                                 <div class="speaker-details">
                                     <div class="row">
-                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/JingjunQiu.png" alt="JingjunQiu" style="object-position: center 10%;" class="speaker-photo"></div>
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/BenLi.png" alt="BenLi" style="object-position: center 35%;" class="speaker-photo"></div>
                                         <div class="col-md-9">
                                             <div class="speaker-info">
                                                 <h5>演讲内容摘要</h5><div class="speaker-abstract">随着AI/ML等前沿技术的快速演进，医药研发正迎来数智化转型的重要机遇。复星医药围绕AI在信息洞察、决策支持、药物发现、临床开发、上市营销等全生命周期中的应用，系统构建了以PharmAID决策智能体为代表的数智化平台，推动从数据资产管理到智能决策的深度融合。通过分享平台架构、场景落地及价值评估等方面的实践经验，助力行业共同探索AI赋能医药研发的创新路径与协同生态。
                                                 </div>
-                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">邱婧君，曾就职于美国耶鲁大学医学院、默沙东、拜耳和百济神州。十几年不同地区、不同治疗领域临床试验研究的丰富经验；参与从药物临床研发战略规划到临床试验及上市后研究的各重要阶段，包括早研转化与BD尽调项目；同时负责集团AI+医药项目的战略规划与推进。现任中国统计理论与方法、中国医药统计与教育、中国药促会、CSCO、北京统计协会等专委会委员，并支持不同课题工作小组，如CDE若干指导原则、IFPMA ICH-E20Adaptive design、E17-MRCT、E9(R1)-Estimand蓝皮书工作组等。作为DIA/CMAC/AIIA(国际人工智能产业联盟)等统计与数据科学工作组核心成员，长期热心推动医药社区各种活动，如组织年会及定量科学论坛、统计学术研讨会、OnSite肿瘤研究者培训课程、能力建设学院统计方法学培训、数据建模大赛和年会壁报评选、教材和书籍编写等。
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">李贲，现任复星医药全球研发中心生物统计负责人。美国Emory大学生物统计与生物信息学博士，曾在外资药企，初创公司，风险投资基金等从事多年统计学与数据科学相关的工作。主要研究方向为应用贝叶斯统计，适应性设计，临床试验中的因果分析，临床试验中机器学习和AI的应用等。现担任中国临床肿瘤学会（CSCO）生物统计学专家委员会委员、Contemporary Clinical Trials杂志副主编、DIA中国统计社区联席负责人等。
                                                 </div>
                                             </div>
                                         </div>
@@ -1098,28 +1098,6 @@
                         </div>
 
                         <div class="session-item">
-                            <div class="session-title"><span class="session-time">16:45-17:10</span><span>基于大语言模型的多样化私有数据临床试验仿真</span></div>
-                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker31" aria-expanded="false" aria-controls="speaker31">
-                                <span>蔡智博 | 中国人民大学统计学院数据科学与大数据统计系讲师</span><i class="fas fa-chevron-down expand-icon"></i>
-                            </div>
-                            <div class="collapse" id="speaker31">
-                                <div class="speaker-details">
-                                    <div class="row">
-                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/ZhiboCai.png" alt="ZhiboCai" style="object-position: center 0%;" class="speaker-photo"></div>
-                                        <div class="col-md-9">
-                                            <div class="speaker-info">
-                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Clinical trial emulation has emerged as an important approach in real-world drug research, enabling investigators to replicate the design and analysis of randomized controlled trials using observational data. However, traditional emulation typically relies on expert knowledge and extensive literature review to construct a hypothetical trial, a process that is often time-consuming and constrained by limited scalability. In this work, we develop a domain-specific large language model (LLM) based AI agent trained with advanced direct preference optimization techniques to facilitate semi-automated trial emulation. Given the drugs or interventions of interest, the agent generates a complete hypothetical trial design, including detailed inclusion and exclusion criteria, treatment allocation strategies, follow-up protocols, and outcome definitions. Building on this, the system leverages LLM to align the hypothetical trial with the user’s diverse private datasets, producing tailored data extraction schemes that enable efficient retrieval of relevant patient cohorts and variables. This AI agent significantly improves the efficiency and reduces the cost of conducting emulation studies for researchers with heterogeneous, privately held data sources, expanding the accessibility and scalability of real-world evidence generation.
-                                                </div>
-                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">蔡智博，中国人民大学统计学院数据科学与大数据统计系讲师。主要研究兴趣包括充分降维、变量选择及其在机器学习中的应用、人工智能的理论和应用。学术论文在JASA、CSDA等学术期刊，以及NeurIPS、SIGIR等会议上发表。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="session-item">
                             <div class="session-title"><span class="session-time">17:10-17:35</span><span>基于人工智能的临床研究效率提升</span></div>
                             <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker29" aria-expanded="false" aria-controls="speaker29">
                                 <span>赵杨 | 南京医科大学教授</span><i class="fas fa-chevron-down expand-icon"></i>
@@ -1133,6 +1111,28 @@
                                                 <h5>演讲内容摘要</h5><div class="speaker-abstract">Applying artificial intelligence to the design, operation, analysis, and interpretation of clinical research will help improve efficiency. In this report, we will review the current applications of artificial intelligence, especially large language models, in the field of enhancing clinical research efficiency. We will also introduce our work in areas such as protocol review and virtual digital twins.
                                                 </div>
                                                 <h5>演讲嘉宾简介</h5><div class="speaker-bio">赵杨，博士，教授，博士生导师。2009年获南京医科大学流行病与卫生统计学系博士学位。2010年至2012年在美国美国哈佛大学公共卫生学院环境流行病学系主要从事肺癌遗传数据的研究。曾在Nature Communications, AJRCCM, International Journal of Epidemiology, BMC Medicine，Cell Reports，中华流行病学杂志，中国卫生统计等杂志以第一/通讯作者发表学术论文90余篇，合计发表学术论文350余篇。研究方向包括复杂生物医学数据整合分析及因果推断方法研究、临床试验中的统计方法、真实世界研究中的统计理论与方法。先后主持国自然项目5项，国家重点研发计划课题1项。作为统计专家或独立数据监察委员会专家，参与过数十个创新药物和疫苗的临床研发工作。现任中国卫生信息与健康大数据学会卫生统计学教育委员会主任委员，中华预防医学会生物统计学分会副主任委员，中国临床肿瘤学会生物统计专家委员会副主任委员、中国医药教育学会医药统计专委会副主任委员，江苏省预防医学会卫生统计学专委会主任委员。在新冠病毒肺炎疫情期间，参加了国家有关新型冠状病毒肺炎防控、新冠肺炎疫情预测预警和防控政策调整模型研究等工作。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="session-item">
+                            <div class="session-title"><span class="session-time">16:45-17:10</span><span>基于大语言模型的多样化私有数据临床试验仿真</span></div>
+                            <div class="session-speaker" data-bs-toggle="collapse" data-bs-target="#speaker31" aria-expanded="false" aria-controls="speaker31">
+                                <span>蔡智博 | 中国人民大学统计学院数据科学与大数据统计系讲师</span><i class="fas fa-chevron-down expand-icon"></i>
+                            </div>
+                            <div class="collapse" id="speaker31">
+                                <div class="speaker-details">
+                                    <div class="row">
+                                        <div class="col-md-3 text-center"><img src="assets/speaker_photo/ZhiboCai.png" alt="ZhiboCai" style="object-position: center 0%;" class="speaker-photo"></div>
+                                        <div class="col-md-9">
+                                            <div class="speaker-info">
+                                                <h5>演讲内容摘要</h5><div class="speaker-abstract">Clinical trial emulation has emerged as an important approach in real-world drug research, enabling investigators to replicate the design and analysis of randomized controlled trials using observational data. However, traditional emulation typically relies on expert knowledge and extensive literature review to construct a hypothetical trial, a process that is often time-consuming and constrained by limited scalability. In this work, we develop a domain-specific large language model (LLM) based AI agent trained with advanced direct preference optimization techniques to facilitate semi-automated trial emulation. Given the drugs or interventions of interest, the agent generates a complete hypothetical trial design, including detailed inclusion and exclusion criteria, treatment allocation strategies, follow-up protocols, and outcome definitions. Building on this, the system leverages LLM to align the hypothetical trial with the user’s diverse private datasets, producing tailored data extraction schemes that enable efficient retrieval of relevant patient cohorts and variables. This AI agent significantly improves the efficiency and reduces the cost of conducting emulation studies for researchers with heterogeneous, privately held data sources, expanding the accessibility and scalability of real-world evidence generation.
+                                                </div>
+                                                <h5>演讲嘉宾简介</h5><div class="speaker-bio">蔡智博，中国人民大学统计学院数据科学与大数据统计系讲师。主要研究兴趣包括充分降维、变量选择及其在机器学习中的应用、人工智能的理论和应用。学术论文在JASA、CSDA等学术期刊，以及NeurIPS、SIGIR等会议上发表。
                                                 </div>
                                             </div>
                                         </div>
