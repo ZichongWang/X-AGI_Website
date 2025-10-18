@@ -135,7 +135,10 @@
                             <p><strong>* 购买学生票须在现场报到时出示学生证</strong></p>
                         </div>
                     </div>
-
+                    <!-- Bagevent Iframe moved outside of the card -->
+                    <div class="iframe-container">
+                        <iframe id="promote_ticket_iframe" width="100%" src="https://www.bagevent.com/widget/ticket/9079965?widget=2&iframe=1" frameborder="0" scrolling="no"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,6 +156,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
-    
+    <!-- 百格活动报名表单脚本 -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['BagEventIFrameResize'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            };
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.bagevent.com/resources/js/iframeResizer/iframeResizer.min.js', 'bfr');
+        bfr('iFrameResize', {checkOrigin: false, heightCalculationMethod: 'taggedElement'}, "#promote_ticket_iframe");
+    </script>
+
 </body>
 </html>
